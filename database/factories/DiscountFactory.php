@@ -18,6 +18,10 @@ class DiscountFactory extends Factory
      */
     public function definition()
     {
+        $originalPrice = $this->faker->randomFloat('2', 0, 2);
+        $discountMin = $originalPrice / 2;
+        $discountMax = $originalPrice - 5;
+
         return [
             'user_id' =>User::factory(),
             'category_id' => Category::factory(),
@@ -25,8 +29,8 @@ class DiscountFactory extends Factory
             'slug' => $this->faker->slug(),
             'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'link' => $this->faker->url(),
-            $original_price = 'original_price' => $this->faker->randomFloat('2',0,2),
-            'discounted_price' => $this->faker->numberBetween($min=$original_price/2, $max=$original_price-5)
+            'original_price' => $originalPrice,
+            'discounted_price' => $this->faker->numberBetween($discountMin, $discountMax)
         ];
     }
 }
