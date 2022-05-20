@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
+use App\Models\Subscription;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -19,9 +21,17 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'username' => $this->faker->unique()->userName(),
             'email' => $this->faker->unique()->safeEmail(),
+            'phone' => $this->faker->unique()->phoneNumber(),
+            'address' => $this->faker->unique()->streetAddress(),
+            'country' => $this->faker->country(),
+            'province' => $this->faker->word(),
+            'city' => $this->faker->unique()->city(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => 'linuxlinux', // password
+            'role_id' => Role::factory(),
+            'subscription_id' => Subscription::factory(),
             'remember_token' => Str::random(10),
         ];
     }

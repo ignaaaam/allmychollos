@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Discount;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,9 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'discount_id' => Discount::factory(),
+            'user_id' => User::factory(),
+            'body' => $this->faker->paragraph()
         ];
     }
 }

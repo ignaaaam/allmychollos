@@ -17,10 +17,17 @@ return new class extends Migration
             $table->id();
             $table->string('username');
             $table->string('name');
+            $table->text('avatar')->nullable();
             $table->string('email')->unique();
+            $table->integer('phone')->unique();
+            $table->string('address');
+            $table->string('country');
+            $table->string('province');
+            $table->string('city');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password'); // hashed in setPasswordAttribute function on user model
             $table->foreignId('role_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('subscription_id')->constrained()->cascadeOnDelete();
             $table->rememberToken();
             $table->timestamps();
         });
