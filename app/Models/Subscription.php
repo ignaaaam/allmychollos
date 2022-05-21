@@ -9,7 +9,7 @@ class Subscription extends Model
 {
     use HasFactory;
 
-    public function users()
+    public function subscribers()
     {
         return $this->hasMany(User::class);
     }

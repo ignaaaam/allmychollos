@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users','id')->cascadeOnDelete();
             $table->dateTime('start_date');
             $table->dateTime('next_billing_date');
             $table->boolean('subscribed');

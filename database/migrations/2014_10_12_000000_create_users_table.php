@@ -27,7 +27,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); // hashed in setPasswordAttribute function on user model
             $table->foreignId('role_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('subscription_id')->constrained()->cascadeOnDelete();
             $table->rememberToken();
             $table->timestamps();
         });
