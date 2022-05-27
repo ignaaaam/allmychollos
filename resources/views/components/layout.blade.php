@@ -17,8 +17,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body {{-- style="font-family: Montserrat, sans-serif" --}} class="antialiased">
-    <section class="bg-main-gray h-24 ">
-            <nav class="h-full md:flex md:justify-between md:items-center">
+            <nav class="h-full md:flex md:justify-between md:items-center bg-main-gray h-24">
                 <div class="ml-8">
                     <a href="/">
                         <img src="/images/logo-small.png" alt="Allmychollos Logo" width="125" height="30">
@@ -75,10 +74,12 @@
                     @endauth
                 </div>
             </nav>
-    </section>
+
             <!-- Page Content -->
-            <main>
+
                 {{ $slot }}
-            </main>
+            <footer class="bg-main-gray text-center py-16 px-10 mt-16">
+
+            </footer>
     </body>
 </html>

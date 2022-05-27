@@ -10,11 +10,12 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 'main-gray': '#342E37',
                 'light-gray': '#F3EFF5',
+                'text-main-gray': '#342E37',
                 'dark-gray': '#EAE7EA',
                 'dark-gray-stroke': '#D4D2D4',
                 'card-main-gray': '#342E37',

@@ -39,7 +39,7 @@ class Discount extends Model
 
     public function category()
     {
-        return $this->belongsToMany(Category::class)->withTimestamps();
+        return $this->belongsTo(Category::class)->withTimestamps();
     }
 
     public function author()

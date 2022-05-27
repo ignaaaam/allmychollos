@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', [
+    return view('discounts.index', [
         'discounts' => Discount::all()
 //            ->where('premium','=',false)
     ]);

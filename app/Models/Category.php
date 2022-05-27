@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function discounts() {
-        return $this->belongsToMany(Discount::class)->withTimestamps();
+    public function discount() {
+        return $this->hasMany(Discount::class)->withTimestamps();
     }
 }
