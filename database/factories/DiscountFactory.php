@@ -21,6 +21,8 @@ class DiscountFactory extends Factory
         $originalPrice = $this->faker->randomFloat('2', 0, 2);
         $discountMin = $originalPrice / 2;
         $discountMax = $originalPrice - 5;
+        $discountedPrice = $this->faker->numberBetween($discountMin, $discountMax);
+        $percentage = 100 * ($originalPrice - $discountedPrice) / $originalPrice;
 
         return [
             'user_id' =>User::factory(),
@@ -30,7 +32,8 @@ class DiscountFactory extends Factory
             'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'link' => $this->faker->url(),
             'original_price' => $originalPrice,
-            'discounted_price' => $this->faker->numberBetween($discountMin, $discountMax)
+            'discounted_price' => $discountedPrice,
+            'percentage' => round($percentage)
         ];
     }
 }

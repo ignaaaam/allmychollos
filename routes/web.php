@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Discount;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'discounts' => Discount::all()
+//            ->where('premium','=',false)
+    ]);
 })->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+//Route::get('discounts/{discount:slug}', function (Discount $discount) {
+//    return view('discount', [
+//        'discount' => $discount
+//    ]);
+//});
 
 require __DIR__.'/auth.php';

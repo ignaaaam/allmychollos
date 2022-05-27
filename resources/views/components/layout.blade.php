@@ -16,118 +16,69 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-{{--            @include('layouts.navigation')--}}
-            <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-                <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
-                            <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <a href="{{ route('home') }}">
-                                    <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                                </a>
-                            </div>
-
-                            <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                    @if (Route::has('login'))
-                                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                            @auth
-                                                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-500 underline">Dashboard</a>
-                                            @else
-                                                <a href="{{ route('login') }}" class="text-sm text-gray-500 underline">Login</a>
-
-                                                @if (Route::has('register'))
-                                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-500 underline">Register</a>
-                                                @endif
-                                            @endif
-                                        </div>
-                                    @endif
-                                </x-nav-link>
-                            </div>
-                        </div>
-
-                        <!-- Settings Dropdown -->
-{{--                        <div class="hidden sm:flex sm:items-center sm:ml-6">--}}
-{{--                            <x-dropdown align="right" width="48">--}}
-{{--                                <x-slot name="trigger">--}}
-{{--                                    <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">--}}
-{{--                                        --}}{{--                            <div>{{ Auth::user()->name }}</div>--}}
-
-{{--                                        <div class="ml-1">--}}
-{{--                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">--}}
-{{--                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />--}}
-{{--                                            </svg>--}}
-{{--                                        </div>--}}
-{{--                                    </button>--}}
-{{--                                </x-slot>--}}
-
-{{--                                <x-slot name="content">--}}
-{{--                                    <!-- Authentication -->--}}
-{{--                                    <form method="POST" action="{{ route('logout') }}">--}}
-{{--                                        @csrf--}}
-
-{{--                                        <x-dropdown-link :href="route('logout')"--}}
-{{--                                                         onclick="event.preventDefault();--}}
-{{--                                                this.closest('form').submit();">--}}
-{{--                                            {{ __('Log Out') }}--}}
-{{--                                        </x-dropdown-link>--}}
-{{--                                    </form>--}}
-{{--                                </x-slot>--}}
-{{--                            </x-dropdown>--}}
-{{--                        </div>--}}
-
-                        <!-- Hamburger -->
-                        <div class="-mr-2 flex items-center sm:hidden">
-                            <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                    <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                                    <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
+    <body {{-- style="font-family: Montserrat, sans-serif" --}} class="antialiased">
+    <section class="bg-main-gray h-24 ">
+            <nav class="h-full md:flex md:justify-between md:items-center">
+                <div class="ml-8">
+                    <a href="/">
+                        <img src="/images/logo-small.png" alt="Allmychollos Logo" width="125" height="30">
+                    </a>
                 </div>
+                <div>
+                    <ul class="flex uppercase text-white text-md">
+                        <li class="mx-6">
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="mx-8">
+                            <a href="/discounts">Descuentos</a>
+                        </li>
+                        <li class="mx-8">
+                            <a href="/faq">FAQ</a>
+                        </li>
+                        <li class="mx-8">
+                            <a href="/contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Search -->
+                <div class="relative flex lg:inline-flex items-center bg-light-gray rounded-xl w-4/12 px-3 py-1 mx-8 min-w-fit">
+                    <form method="GET" action="/" class="w-full">
+                        @if (request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                        @endif
+                        <input type="text"
+                               name="search"
+                               placeholder="Buscar..."
+                               class="bg-transparent w-full border-none placeholder-black font-semibold text-sm"
+                               value="{{ request('search') }}">
+                    </form>
+                </div>
+                <div class="mt-8 md:mt-0 flex items-center">
 
-                <!-- Responsive Navigation Menu -->
-{{--                <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">--}}
-{{--                    <div class="pt-2 pb-3 space-y-1">--}}
-{{--                        <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">--}}
-{{--                            {{ __('Dashboard') }}--}}
-{{--                        </x-responsive-nav-link>--}}
-{{--                    </div>--}}
+                    @auth
+                        <x-dropdown>
+                            <x-slot name="trigger">
+                                <button class="text-sm font-bold uppercase">Welcome, <span class="text-sm font-bold uppercase text-blue-500 mr-8 ml-1">{{ auth()->user()->username }}<i class="uil uil-angle-down ml-2"></i></span></button>
+                            </x-slot>
 
-{{--                    <!-- Responsive Settings Options -->--}}
-{{--                    <div class="pt-4 pb-1 border-t border-gray-200">--}}
-{{--                        --}}{{----}}{{--            <div class="px-4">--}}
-{{--                        --}}{{----}}{{--                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>--}}
-{{--                        --}}{{----}}{{--                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>--}}
-{{--                        --}}{{----}}{{--            </div>--}}
-
-{{--                        <div class="mt-3 space-y-1">--}}
-{{--                            <!-- Authentication -->--}}
-{{--                            <form method="POST" action="{{ route('logout') }}">--}}
-{{--                                @csrf--}}
-
-{{--                                <x-responsive-nav-link :href="route('logout')"--}}
-{{--                                                       onclick="event.preventDefault();--}}
-{{--                                        this.closest('form').submit();">--}}
-{{--                                    {{ __('Log Out') }}--}}
-{{--                                </x-responsive-nav-link>--}}
-{{--                            </form>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                            <form id="logout-form" action="/logout" method="POST" class="hidden">
+                                @csrf
+                            </form>
+                        </x-dropdown>
+                    @else
+                        <button class=" px-4 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
+                            <a href="/login" class="text-lg font-bold uppercase text-white">Login</a>
+                        </button>
+                        <button class="mx-6 px-2 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
+                            <a href="/register" class="mx-6 text-lg text-white font-bold uppercase">Registro</a>
+                        </button>
+                    @endauth
+                </div>
             </nav>
-
+    </section>
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
-        </div>
     </body>
 </html>

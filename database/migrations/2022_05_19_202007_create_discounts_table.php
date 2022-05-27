@@ -24,9 +24,10 @@ return new class extends Migration
             $table->text('link');
             $table->decimal('original_price', 4, 2);
             $table->decimal('discounted_price', 4, 2);
-            $table->timestamps();
+            $table->integer('percentage');
+            $table->boolean('premium');
             $table->timestamp('published_at')->nullable();
-
+            $table->timestamp('updated_at')->nullable();
 
         });
     }
