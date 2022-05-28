@@ -1,7 +1,7 @@
-<div class="w-5/12 h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-3/12 md:min-w-full">
-    <div class="flex items-center">
+<div class="w-6/12 h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-5/12">
+    <div class="flex-col items-center text-center">
         <a href="">
-            <img class="mr-8 h-full min-w-[50%]" src="/images/pngwing.com.png" width="150" height="150" alt="">
+            <img class=" h-full" src="/images/pngwing.com.png"  alt="" width="120" height="120">
         </a>
         <div class="w-[30rem]">
             <a href="/discount/1">

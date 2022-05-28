@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();
             $table->text('body');
-            $table->text('link');
+            $table->string('link');
             $table->decimal('original_price', 4, 2);
             $table->decimal('discounted_price', 4, 2);
             $table->integer('percentage');
