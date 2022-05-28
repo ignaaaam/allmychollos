@@ -1,4 +1,4 @@
-<div class="w-6/12 h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-5/12">
+<div class="w-full h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-5/12">
     <div class="flex-col items-center text-center">
         <a href="">
             <img class=" h-full" src="/images/pngwing.com.png"  alt="" width="120" height="120">

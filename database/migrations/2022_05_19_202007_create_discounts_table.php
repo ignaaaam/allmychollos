@@ -26,9 +26,7 @@ return new class extends Migration
             $table->decimal('discounted_price', 4, 2);
             $table->integer('percentage');
             $table->boolean('premium');
-            $table->timestamp('published_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
-
+            $table->timestamps();
         });
     }
 

@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => 'linuxlinux', // password
             'role_id' => Role::factory(),
-            'subscription_id' => Subscription::factory(),
+            //'subscription_id' => Subscription::factory(),
             'remember_token' => Str::random(10),
         ];
     }

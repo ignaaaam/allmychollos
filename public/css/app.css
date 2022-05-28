@@ -822,6 +822,9 @@ select {
 .w-1\/2 {
   width: 50%;
 }
+.w-80 {
+  width: 20rem;
+}
 .min-w-fit {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;

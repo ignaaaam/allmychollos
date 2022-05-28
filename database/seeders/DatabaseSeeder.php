@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Discount;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,11 +18,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Role::factory()->create([
+            'name' => 'admin'
+        ]);
+
+        Role::factory()->create([
+            'name' => 'user'
+        ]);
+
+        Role::factory()->create([
+            'name' => 'guest'
+        ]);
+
+        $user = User::factory()->create([
+            'name' => 'John Doe',
+            'role_id' => 1
+        ]);
+
+        $category = Category::factory(40)->create();
+
+        $discount = Discount::factory(25)->create([
+            'user_id' => $user->id,
+            'premium' => false
+        ]);
     }
 }
