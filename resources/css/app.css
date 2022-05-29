@@ -6,3 +6,35 @@
 html {
     font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
 }
+
+/* CUSTOM CSS */
+
+    /* SWIPER */
+
+/*.swiper {*/
+/*    width: 100%;*/
+/*}*/
+
+/*.swiper-wrapper {*/
+/*    width: 100% !important;*/
+/*}*/
+
+/*.swiper-button-prev {*/
+/*    color: white !important;*/
+/*}*/
+
+/*.swiper-button-next {*/
+/*    color: white !important;*/
+/*}*/
+
+.nav__menu_bottom{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #F3EFF5;
+    padding: 2rem 1.5rem 2rem;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+    border-radius: 0rem 0rem 0 0;
+    transition: .3s;
+}

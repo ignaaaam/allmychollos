@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Discount;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('discounts.index', [
-        'discounts' => Discount::all()
+        'discounts' => Discount::all(),
 //            ->where('premium','=',false)
+        'categories' => Category::all()
     ]);
 })->name('home');
 

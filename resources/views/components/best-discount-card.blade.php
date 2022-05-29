@@ -1,5 +1,5 @@
 <div
-    class="w-full h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl lg:w-[60rem]">
+    class="w-[25rem] h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[35rem]">
     <div class="flex-col items-center text-center justify-center">
         <a href="" class="flex justify-center">
             <img class="h-full" src="/images/pngwing.com.png" alt="" width="120" height="120">

@@ -21,6 +21,8 @@ module.exports = {
                 'card-main-gray': '#342E37',
                 'card-light-gray': '#4A444E',
                 'category-gray': '#49424D',
+                'category-light-gray': '#6a6070',
+                'category-lighter-gray': '#807686',
                 'button-light-red': '#EB7272',
                 'button-dark-red': '#E35656',
                 'price-color': '#D39A26',

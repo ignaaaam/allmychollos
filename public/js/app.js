@@ -5080,7 +5080,47 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start(); // CATEGORY BUTTONS
+
+$(document).ready(function () {
+  var left = document.getElementById('left');
+  var right = document.getElementById('right');
+  var slider = document.getElementById('category-container');
+  var isDown = false;
+  var startX;
+  var scrollLeft;
+  slider.addEventListener('mousedown', function (e) {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+  slider.addEventListener('mouseleave', function () {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+  slider.addEventListener('mouseup', function () {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+  slider.addEventListener('mousemove', function (e) {
+    if (!isDown) return;
+    e.preventDefault();
+    var x = e.pageX - slider.offsetLeft;
+    var walk = (x - startX) * 3; //scroll-fast
+
+    slider.scrollLeft = scrollLeft - walk;
+    console.log(walk);
+  });
+
+  left.onclick = function () {
+    document.getElementById('category-container').scrollLeft -= 200;
+  };
+
+  right.onclick = function () {
+    document.getElementById('category-container').scrollLeft += 200;
+  };
+});
 
 /***/ }),
 
