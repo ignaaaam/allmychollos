@@ -24,31 +24,31 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body {{-- style="font-family: Montserrat, sans-serif" --}} class="antialiased">
-            <nav id="top-menu" class="h-auto flex-col items-center justify-center pt-6 pb-6 md:h-full md:flex md:justify-between md:items-center bg-main-gray md:flex-row ">
+            <nav id="top-menu" class="h-auto flex-col items-center justify-center pt-6 pb-6 md:h-full md:flex md:justify-between md:items-center bg-main-gray md:flex-row lg:max-w-full ">
                 <div class="flex items-center justify-center mb-4 lg:ml-8 md:mb-0 md:ml-4">
                     <a href="/">
-                        <img src="/images/logo-small.png" alt="Allmychollos Logo" width="125" height="30">
+                        <img src="/images/logo-medium.png" alt="Allmychollos Logo" width="125" height="30">
                     </a>
                 </div>
                 <div>
                     <ul class="hidden flex uppercase text-white md:inline-flex md:text-sm lg:text-lg ">
-                        <li class="mx-6 md:mx-2 lg:mx-6">
+                        <li class="mx-6 md:mx-2 lg:mx-4">
                             <a href="/">Home</a>
                         </li>
-                        <li class="mx-8 md:mx-2 lg:mx-8">
+                        <li class="mx-8 md:mx-2 lg:mx-4">
                             <a href="/discounts">Descuentos</a>
                         </li>
-                        <li class="mx-8 md:mx-2 lg:mx-8">
+                        <li class="mx-8 md:mx-2 lg:mx-4">
                             <a href="/faq">FAQ</a>
                         </li>
-                        <li class="mx-8 md:mx-2 lg:mx-8">
+                        <li class="mx-8 md:mx-2 lg:mx-4">
                             <a href="/contact">Contacto</a>
                         </li>
                     </ul>
                 </div>
                 <!-- Search -->
                 <div class="flex items-center justify-center">
-                    <div class="w-4/12 min-w-fit flex lg:inline-flex items-center bg-light-gray rounded-xl  lg:w-full px-3 p-0 mx-8 xl:w-[30rem]">
+                    <div class="w-4/12 min-w-fit flex lg:inline-flex items-center bg-light-gray rounded-xl  lg:w-[200px] px-3 p-0 lg:mx-4 xl:w-[28rem]">
                         <form method="GET" action="/" class="w-full">
                             {{--                        @if (request('category'))--}}
                             {{--                            <input type="hidden" name="category" value="{{ request('category') }}">--}}
@@ -96,7 +96,7 @@
                         <button class=" px-4 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
                             <a href="/login" class="text-lg font-bold uppercase text-white">Login</a>
                         </button>
-                        <button class="mx-6 px-2 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
+                        <button class="mx-4 px-2 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
                             <a href="/register" class="mx-6 text-lg text-white font-bold uppercase">Registro</a>
                         </button>
                     @endauth
@@ -126,8 +126,91 @@
             <!-- Page Content -->
 
                 {{ $slot }}
-            <footer class="bg-main-gray text-center py-16 px-10 mt-16">
+            <footer class="bg-main-gray text-center py-16 px-10 mt-16 w-full flex-col items-center justify-center">
+                <div class="flex items-center justify-center my-4">
+                    <img src="/images/logo-medium.png" alt="Allmychollos Logo" width="145" height="50">
+                </div>
+                <div>
+                    <h1 class="text-white font-bold text-lg mt-8 mb-4">Suscribete a nuestro newsltter</h1>
+                    <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
+                        <form method="POST" action="/newsletter" class="lg:flex text-sm">
+                            @csrf
+                            <div class="lg:py-3 lg:px-5 flex items-center">
+                                <label for="email" class="hidden lg:inline-block"></label>
+                                <div>
+                                    <input id="email"
+                                           type="text"
+                                           placeholder="Introduce tu email"
+                                           name="email"
+                                           class="lg:bg-transparent w-full py-2 lg:py-0 pl-4 border-none rounded-xl focus-within:outline-none">
 
+                                    @error('email')
+                                    <span class="text-xs text-red-500"> {{ $message }} </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                    class="transition-colors duration-300 bg-button-light-orange hover:bg-button-dark-orange mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
+                            >
+                                Subscribete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-8 lg:justify-around">
+                    <div>
+                        <h2 class="font-bold text-white mb-4">Menu</h2>
+                        <ul class=" ">
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Descuentos</a>
+                            </li>
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">FAQ</a>
+                            </li>
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-white mb-4">Ayuda</h2>
+                        <ul class=" ">
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Facturación</a>
+                            </li>
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Sobre Nosotros</a>
+                            </li>
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Terminos de uso</a>
+                            </li>
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Privacidad</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-white mb-4">Visítanos</h2>
+                        <ul class=" ">
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Instagram</a>
+                            </li>
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Twitter</a>
+                            </li>
+                            <li class="text-gray-400 hover:text-gray-200">
+                                <a href="/">Facebook</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-full border-t border-gray-400 mt-6">
+                    <p class="text-light-gray mt-6">Copyright © 2022 AllMyChollos. Todos los derechos reservados </p>
+                </div>
             </footer>
 
 
