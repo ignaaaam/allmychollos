@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,36 +16,39 @@
             rel="stylesheet"
             href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
         />
+        <!-- Unicons -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body {{-- style="font-family: Montserrat, sans-serif" --}} class="antialiased">
-            <nav class="h-auto flex-col items-center justify-center pt-6 pb-6 md:h-full md:flex md:justify-between md:items-center bg-main-gray ">
-                <div class="flex items-center justify-center mb-4 lg:ml-8">
+            <nav id="top-menu" class="h-auto flex-col items-center justify-center pt-6 pb-6 md:h-full md:flex md:justify-between md:items-center bg-main-gray md:flex-row ">
+                <div class="flex items-center justify-center mb-4 lg:ml-8 md:mb-0 md:ml-4">
                     <a href="/">
                         <img src="/images/logo-small.png" alt="Allmychollos Logo" width="125" height="30">
                     </a>
                 </div>
                 <div>
-                    <ul class="hidden flex uppercase text-white text-md">
-                        <li class="mx-6">
+                    <ul class="hidden flex uppercase text-white md:inline-flex md:text-sm lg:text-lg ">
+                        <li class="mx-6 md:mx-2 lg:mx-6">
                             <a href="/">Home</a>
                         </li>
-                        <li class="mx-8">
+                        <li class="mx-8 md:mx-2 lg:mx-8">
                             <a href="/discounts">Descuentos</a>
                         </li>
-                        <li class="mx-8">
+                        <li class="mx-8 md:mx-2 lg:mx-8">
                             <a href="/faq">FAQ</a>
                         </li>
-                        <li class="mx-8">
+                        <li class="mx-8 md:mx-2 lg:mx-8">
                             <a href="/contact">Contacto</a>
                         </li>
                     </ul>
                 </div>
                 <!-- Search -->
-                <div class="flex items-center justify-center ">
-                    <div class="flex lg:inline-flex items-center bg-light-gray rounded-xl  lg:w-4/12 px-3 p-0 mx-8 lg:min-w-fit">
+                <div class="flex items-center justify-center">
+                    <div class="w-4/12 min-w-fit flex lg:inline-flex items-center bg-light-gray rounded-xl  lg:w-full px-3 p-0 mx-8 xl:w-[30rem]">
                         <form method="GET" action="/" class="w-full">
                             {{--                        @if (request('category'))--}}
                             {{--                            <input type="hidden" name="category" value="{{ request('category') }}">--}}
@@ -70,7 +73,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="w-16 flex justify-center">
+                    <div class="w-16 flex justify-center lg:mr-8 lg:hidden">
                         <a href="/login">
                             <svg id="user-logo" data-name="user-logo" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 459 459"><defs><style>.cls-1{fill:#f3eff5;}</style></defs><path class="cls-1" d="M229.5,0C102.53,0,0,102.85,0,229.5,0,356.3,102.72,459,229.5,459,356.85,459,459,355.82,459,229.5,459,102.55,356.08,0,229.5,0ZM347.6,364.67a179.48,179.48,0,0,1-236.18,0,16.37,16.37,0,0,1-5.25-15.6c11.3-55.2,46.46-98.73,91.21-113C174,222.22,158,193.82,158,161c0-46.39,32-84,71.5-84S301,114.61,301,161c0,32.81-16,61.21-39.37,75,44.75,14.31,79.91,57.84,91.21,113A16.38,16.38,0,0,1,347.6,364.67Z"/></svg>
                         </a>
@@ -78,7 +81,7 @@
                     </div>
                 </div>
 
-                <div class="hidden mt-8 md:mt-0 flex items-center">
+                <div class="hidden mt-8 md:mt-0 flex items-center lg:inline-flex">
                     @auth
                         <x-dropdown>
                             <x-slot name="trigger">
@@ -100,9 +103,23 @@
                 </div>
             </nav>
 
-            <nav class="nav__menu_bottom">
-                <ul>
-                    <li></li>
+            <nav class="nav__menu_bottom z-50 md:hidden">
+                <ul class="nav__list">
+                    <li class="nav__item transition-transform hover:-translate-y-0.5">
+                        <a href="#top-menu" class="nav__link active-link"><i class="uil uil-estate nav__icon"></i>Home</a>
+                    </li>
+                    <li class="nav__item transition-transform hover:-translate-y-0.5">
+                        @auth()
+                            <a href="/profile" class="nav__link active-link"><i class="uil uil-user-circle nav__icon"></i>Profile</a>
+                        @endauth
+                            <a href="/login" class="nav__link active-link"><i class="uil uil-user-circle nav__icon"></i>Login</a>
+                    </li>
+                    <li class="nav__item transition-transform hover:-translate-y-0.5">
+                        <a href="/discounts" class="nav__link active-link"><i class="uil uil-pricetag-alt nav__icon"></i>Discounts</a>
+                    </li>
+                    <li class="nav__item transition-transform hover:-translate-y-0.5">
+                        <a href="/" class="nav__link active-link"><i class="uil uil-bars nav__icon"></i>Menu</a>
+                    </li>
                 </ul>
             </nav>
 

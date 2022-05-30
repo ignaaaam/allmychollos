@@ -1,5 +1,5 @@
 <div
-    class="w-[25rem] h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[35rem] lg:w-[50rem] lg:h-auto">
+    class="w-[20rem] h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[35rem] lg:w-[50rem] lg:h-auto">
     <div class="flex-col items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4">
         <a href="" class="flex justify-center lg:row-span-4 lg:-ml-10">
             <img class="h-full " src="/images/pngwing.com.png" alt="" width="120" height="120">
@@ -46,9 +46,9 @@
             </div>
         </div>
     </div>
-    <div class="absolute top-5 right-5 flex-col items-center justify-center rounded-2xl bg-button-light-orange p-2 drop-shadow-lg">
-        <p class="text-white text-sm uppercase font-bold mr-2 ">10%</p>
-        <p class="text-white text-sm uppercase font-bold ">descuento</p>
+    <div class="w-auto absolute top-5 left-5 flex-col items-center justify-center rounded-2xl bg-button-light-orange p-2 drop-shadow-lg md:flex-row md:inline-flex">
+        <p class="text-white text-xs uppercase font-bold mr-2 md:text-sm ">10%</p>
+        <p class="text-white text-xs uppercase font-bold md:text-sm ">descuento</p>
     </div>
 
 </div>

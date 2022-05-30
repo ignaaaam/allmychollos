@@ -33,8 +33,24 @@ html {
     left: 0;
     width: 100%;
     background-color: #F3EFF5;
-    padding: 2rem 1.5rem 2rem;
+    padding: 1rem 1.5rem 1rem;
     box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
     border-radius: 0rem 0rem 0 0;
     transition: .3s;
+}
+
+.nav__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav__icon {
+    font-size: 2rem;
 }

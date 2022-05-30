@@ -28,15 +28,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Role::factory()->create([
-            'name' => 'guest'
+            'name' => 'subscriber'
         ]);
 
         $user = User::factory()->create([
             'name' => 'John Doe',
             'role_id' => 1
         ]);
-
-        $category = Category::factory(40)->create();
 
         $discount = Discount::factory(25)->create([
             'user_id' => $user->id,

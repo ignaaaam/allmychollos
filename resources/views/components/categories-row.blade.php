@@ -1,5 +1,5 @@
 <section id="menu-container" class="bg-category-gray h-20 flex items-center justify-center w-full">
-            <button id="left" class="w-8 mx-4 bg-category-light-gray rounded-md flex items-center justify-center p-2 z-50 3xl:hidden">
+            <button id="left" class="w-8 mx-4 bg-category-light-gray rounded-md flex items-center justify-center p-2 z-40 3xl:hidden">
                                 <svg id="left-arrow" data-name="left-arrow" xmlns="http://www.w3.org/2000/svg" width="10"
                                      height="10" viewBox="0 0 10 16"><defs><style>.cls-1 {
                                                 fill: #fff;
@@ -13,7 +13,7 @@
                             <a href="" class="flex justify-center items-center text-white text-sm text-center transition-all hover:font-bold hover:-translate-y-0.5 mx-2 bg-category-lighter-gray p-2 rounded-md">{{ $category->name }}</a>
                          @endforeach
     </div>
-    <button id="right" class="w-8 mx-4 bg-category-light-gray rounded-md flex items-center justify-center p-2 z-50 3xl:hidden">
+    <button id="right" class="w-8 mx-4 bg-category-light-gray rounded-md flex items-center justify-center p-2 z-40 3xl:hidden">
                                                          <svg id="right-arrow" data-name="right-arrow" xmlns="http://www.w3.org/2000/svg" width="10"
                                                               height="10" viewBox="0 0 10 16"><defs><style>.cls-1 {
                                                                          fill: #fff;
