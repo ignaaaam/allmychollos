@@ -6,7 +6,7 @@
             <h1 class="uppercase text-main-gray text-4xl bold self-start text-center mb-4 ">Últimos Descuentos</h1>
             @if($discounts->count())
                 @foreach($discounts as $discount)
-                    <x-discount-card />
+                    <x-discount-card :discount="$discount" />
                 @endforeach
             @else
                 <p class="my-8 text-center">No hay descuentos disponibles. Por favor vuelva mas tarde. </p>
