@@ -33,21 +33,30 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        $attributes = request()->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required|min:3|max:255|unique:users,username',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'phone' => 'required|numeric|digits:9|unique:users,phone',
+            'country' => 'required|max:255|string',
+            'city' => 'required|max:255|string',
+            'password' => 'required|min:7|max:20'
         ]);
+        $attributes['role_id'] = 2;
+//        $user = User::create([
+//            'name' => $request->name,
+//            'username' => $request->username,
+//            'email' => $request->email,
+//            'phone' => $request->phone,
+//            'country' => $request->country,
+//            'city' => $request->city,
+//            'password' => Hash::make($request->password),
+//            'role_id' => 2
+//        ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+//        event(new Registered($user));
 
-        event(new Registered($user));
-
-        Auth::login($user);
+        Auth::login(User::create($attributes));
 
         return redirect(RouteServiceProvider::HOME);
     }

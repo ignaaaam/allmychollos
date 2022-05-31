@@ -85,8 +85,14 @@
                     @auth
                         <x-dropdown>
                             <x-slot name="trigger">
-                                <button class="text-sm font-bold uppercase">Welcome, <span class="text-sm font-bold uppercase text-blue-500 mr-8 ml-1">{{ auth()->user()->username }}<i class="uil uil-angle-down ml-2"></i></span></button>
+                                <button class="text-sm font-bold uppercase text-white">Bienvenido, <span class="text-sm font-bold uppercase text-button-light-orange mr-8 ml-1">{{ auth()->user()->username }}<i class="uil uil-angle-down ml-2"></i></span></button>
                             </x-slot>
+                            @can('admin')
+                                <x-dropdown-item href="/admin/discounts" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
+                                <x-dropdown-item href="/admin/discounts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                            @endcan
+                            <x-dropdown-item href="/discounts/create" :active="request()->is('discounts/create')">Crear Descuento</x-dropdown-item>
+                            <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
 
                             <form id="logout-form" action="/logout" method="POST" class="hidden">
                                 @csrf
@@ -106,7 +112,7 @@
             <nav class="nav__menu_bottom z-50 md:hidden">
                 <ul class="nav__list">
                     <li class="nav__item transition-transform hover:-translate-y-0.5">
-                        <a href="#top-menu" class="nav__link active-link"><i class="uil uil-estate nav__icon"></i>Home</a>
+                        <a href="/" class="nav__link active-link"><i class="uil uil-estate nav__icon"></i>Home</a>
                     </li>
                     <li class="nav__item transition-transform hover:-translate-y-0.5">
                         @auth()
@@ -126,7 +132,7 @@
             <!-- Page Content -->
 
                 {{ $slot }}
-            <footer class="bg-main-gray text-center py-16 px-10 mt-16 w-full flex-col items-center justify-center">
+            <footer class="bg-main-gray text-center py-16 px-10 w-full flex-col items-center justify-center">
                 <div class="flex items-center justify-center my-4">
                     <img src="/images/logo-medium.png" alt="Allmychollos Logo" width="145" height="50">
                 </div>
@@ -153,13 +159,13 @@
                             <button type="submit"
                                     class="transition-colors duration-300 bg-button-light-orange hover:bg-button-dark-orange mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
                             >
-                                Subscribete
+                                Suscribete
                             </button>
                         </form>
                     </div>
                 </div>
                 <div class="flex items-center justify-between mt-8 lg:justify-around">
-                    <div>
+                    <div class="mx-2">
                         <h2 class="font-bold text-white mb-4">Menu</h2>
                         <ul class=" ">
                             <li class="text-gray-400 hover:text-gray-200">
@@ -176,7 +182,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="mx-2">
                         <h2 class="font-bold text-white mb-4">Ayuda</h2>
                         <ul class=" ">
                             <li class="text-gray-400 hover:text-gray-200">
@@ -193,7 +199,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="mx-2">
                         <h2 class="font-bold text-white mb-4">Visítanos</h2>
                         <ul class=" ">
                             <li class="text-gray-400 hover:text-gray-200">

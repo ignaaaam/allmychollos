@@ -16,13 +16,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
             $table->string('phone')->unique();
-            $table->string('address');
             $table->string('country');
-            $table->string('province');
             $table->string('city');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); // hashed in setPasswordAttribute function on user model

@@ -35,8 +35,6 @@ html {
     box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
     border-radius: 0rem 0rem 0 0;
     transition: .3s;
-
-    display: none;
 }
 
 .nav__list {
@@ -54,3 +52,7 @@ html {
 .nav__icon {
     font-size: 2rem;
 }
+
+/*.comment-container-featured {*/
+/*    padding-right: -2rem !important;*/
+/*}*/

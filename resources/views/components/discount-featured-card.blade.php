@@ -9,7 +9,7 @@
         <div
             class="flex-col justify-center items-center text-center w-full  lg:col-start-2 lg:col-span-full lg:row-start-1 lg:row-span-full lg:-ml-14">
             <a href="/discounts/1" class="lg:grid lg:row-start-2">
-                <h2 class="text-white font-bold text-lg md:text-2xl lg:my-2">{{ $discount->title }}</h2>
+                <h2 class="text-white font-bold text-lg md:text-2xl lg:my-2 lg:px-4">{{ $discount->title }}</h2>
                 <div class="flex my-4 items-center text-center justify-center lg:my-2">
                     <p class="text-price-color font-bold mr-8 text-xl md:text-2xl">{{ $discount->discounted_price }} €</p>
                     <p class="line-through text-white text-lg md:text-lg">{{ $discount->original_price }} €</p>
@@ -28,18 +28,18 @@
                     <p class="mr-4 text-white text-sm font-bold transition-transform hover:translate-x-0.5 md:text-lg">
                         {{ $discount->author->username }}</p>
                 </a>
-                <div class="flex items-center justify-center my-4 gap-4 lg:mx-4">
+                <div class="flex items-center justify-center my-4 gap-4 mx-4">
                     <div
                         class="border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
-                        <img class="h-full" src="/images/heart.png" alt="" width="22" height="22">
+                        <img class="h-full" src="/images/heart.png" alt="" width="30" height="30">
                     </div>
                     <div
                         class="border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
-                        <img class="h-full" src="/images/dislike.png" alt="" width="22" height="22">
+                        <img class="h-full" src="/images/dislike.png" alt="" width="30" height="30">
                     </div>
                     <div
-                        class="flex items-center border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer lg:px-4">
-                        <img class="h-full" src="/images/comment.png" alt="" width="22" height="22">
+                        class="flex items-center justify-center border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer lg:px-4 comment-container-featured">
+                        <img class="h-full" src="/images/comment.png" alt="" width="24" height="24">
                         <p class="text-light-gray ml-2">{{ $discount->comments->count() }}</p>
                     </div>
                 </div>

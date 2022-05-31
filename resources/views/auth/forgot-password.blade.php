@@ -2,12 +2,12 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="/images/logo-medium.png" alt="Allmychollos Logo" width="200" height="50">
             </a>
         </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        <div class="mb-4 text-sm text-white">
+            {{ __('Has olvidado tu contraseña? No pasa nada. Simplemente indicanos tu email y te enviaremos un link para escoger una nueva.') }}
         </div>
 
         <!-- Session Status -->

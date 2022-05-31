@@ -14,9 +14,16 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="name" :value="__('Nombre')" />
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+            </div>
+
+            <!-- Username -->
+            <div class="mt-4">
+                <x-label for="username" :value="__('Username')" />
+
+                <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
             </div>
 
             <!-- Email Address -->
@@ -24,6 +31,27 @@
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <!-- Phone -->
+            <div class="mt-4">
+                <x-label for="phone" :value="__('Telefono')" />
+
+                <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus />
+            </div class="mt-4">
+
+            <!-- Pais -->
+            <div class="mt-4">
+                <x-label for="country" :value="__('Pais')" />
+
+                <x-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autofocus />
+            </div>
+
+            <!-- Ciudad -->
+            <div class="mt-4">
+                <x-label for="city" :value="__('Ciudad')" />
+
+                <x-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus />
             </div>
 
             <!-- Password -->
@@ -46,7 +74,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                <a class="underline text-sm text-white hover:translate-x-0.5 transition-transform" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
