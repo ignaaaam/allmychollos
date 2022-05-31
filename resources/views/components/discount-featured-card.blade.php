@@ -1,7 +1,7 @@
 @props(['discount'])
 
 <div
-    class="w-[20rem] h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[50rem] lg:h-auto mb-4">
+    class="w-[20rem]  bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[50rem] lg:h-20 mb-4 swiper-slide my-4">
     <div class="flex-col items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4">
         <a href="" class="flex justify-center lg:row-span-4 lg:-ml-10">
             <img class="h-full " src="/images/pngwing.com.png" alt="" width="120" height="120">

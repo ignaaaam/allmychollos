@@ -10,22 +10,20 @@ html {
 /* CUSTOM CSS */
 
     /* SWIPER */
+.swiper {
+    width: 90vw;
+    height: auto;
+    padding: 4rem !important;
+    margin-top: -3rem;
+}
 
-/*.swiper {*/
-/*    width: 100%;*/
-/*}*/
+.swiper-button-prev {
+    color: #342E37 !important;
+}
 
-/*.swiper-wrapper {*/
-/*    width: 100% !important;*/
-/*}*/
-
-/*.swiper-button-prev {*/
-/*    color: white !important;*/
-/*}*/
-
-/*.swiper-button-next {*/
-/*    color: white !important;*/
-/*}*/
+.swiper-button-next {
+    color: #342E37 !important;
+}
 
 .nav__menu_bottom{
     position: fixed;

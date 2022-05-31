@@ -8,7 +8,7 @@
         </a>
         <div
             class="flex-col justify-center items-center text-center w-full  lg:col-start-2 lg:col-span-full lg:row-start-1 lg:row-span-full lg:-ml-14">
-            <a href="/discounts/1" class="lg:grid lg:row-start-2">
+            <a href="/discount/1" class="lg:grid lg:row-start-2">
                 <h2 class="text-white font-bold text-lg md:text-2xl lg:my-2">{{ $discount->title }}</h2>
                 <div class="flex my-4 items-center text-center justify-center lg:my-2">
                     <p class="text-price-color font-bold mr-8 text-xl md:text-2xl">{{ $discount->discounted_price }} €</p>

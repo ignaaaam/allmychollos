@@ -5086,32 +5086,6 @@ $(document).ready(function () {
   var left = document.getElementById('left');
   var right = document.getElementById('right');
   var slider = document.getElementById('category-container');
-  var isDown = false;
-  var startX;
-  var scrollLeft;
-  slider.addEventListener('mousedown', function (e) {
-    isDown = true;
-    slider.classList.add('active');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
-  slider.addEventListener('mouseleave', function () {
-    isDown = false;
-    slider.classList.remove('active');
-  });
-  slider.addEventListener('mouseup', function () {
-    isDown = false;
-    slider.classList.remove('active');
-  });
-  slider.addEventListener('mousemove', function (e) {
-    if (!isDown) return;
-    e.preventDefault();
-    var x = e.pageX - slider.offsetLeft;
-    var walk = (x - startX) * 3; //scroll-fast
-
-    slider.scrollLeft = scrollLeft - walk;
-    console.log(walk);
-  });
 
   left.onclick = function () {
     document.getElementById('category-container').scrollLeft -= 200;
@@ -5120,6 +5094,30 @@ $(document).ready(function () {
   right.onclick = function () {
     document.getElementById('category-container').scrollLeft += 200;
   };
+}); // SWIPER
+
+var swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: false,
+  spaceBetween: 100,
+  slidesPerView: 1,
+  breakpoints: {
+    // when window width is >= 640px
+    1650: {
+      slidesPerView: 2,
+      spaceBetween: 100
+    }
+  },
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
 });
 
 /***/ }),

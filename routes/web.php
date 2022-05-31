@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DiscountController;
 use App\Models\Category;
 use App\Models\Discount;
 use Illuminate\Support\Facades\Route;
@@ -15,17 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('discounts.index', [
-        'discounts' => Discount::all(),
-//            ->where('premium','=',false)
-        'categories' => Category::all()
-    ]);
-})->name('home');
+Route::get('/', [DiscountController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('discounts/{discount:slug}', [DiscountController::class, 'show']);
 
 //Route::get('discounts/{discount:slug}', function (Discount $discount) {
 //    return view('discount', [
