@@ -1,7 +1,7 @@
 @props(['discount'])
 
 <div
-    class="w-[20rem] h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[35rem] lg:w-[50rem] lg:h-auto mb-4">
+    class="w-[20rem] h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[50rem] lg:h-auto mb-4">
     <div class="flex-col items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4">
         <a href="" class="flex justify-center lg:row-span-4 lg:-ml-10">
             <img class="h-full " src="/images/pngwing.com.png" alt="" width="120" height="120">
@@ -14,15 +14,19 @@
                     <p class="text-price-color font-bold mr-8 text-xl md:text-2xl">{{ $discount->discounted_price }} €</p>
                     <p class="line-through text-white text-lg md:text-lg">{{ $discount->original_price }} €</p>
                 </div>
-                <p class="text-white my-8 text-sm md:text-lg lg:my-4">{{!! $discount->body !!}}</p>
+                <p class="text-white my-8 text-sm md:text-lg lg:my-4">{{ $discount->body }}</p>
             </a>
             <div
                 class="flex-col items-center justify-center gap-2 lg:flex-row lg:inline-flex lg:col-start-2 lg:col-span-full lg:row-start-4 lg:row-end-5">
                 <a class="flex items-center justify-center my-2 " href="/user/1">
-                    <img class="rounded-full mr-2" src="https://i.pravatar.cc/35"
-                         alt="">
+                    @if (isset($discount->author->avatar))
+                        <img src="{{ asset('storage/' . $discount->author->avatar) }}" alt="{{ $discount->author->username }} avatar" width="35" height="35" class="rounded-xl mr-2">
+                    @else
+                        <img src="{{ URL::to('/') }}/images/user-default.png" alt="{{ $discount->author->username }} avatar" width="35" height="35" class="rounded-xl mr-2">
+                    @endif
+
                     <p class="mr-4 text-white text-sm font-bold transition-transform hover:translate-x-0.5 md:text-lg">
-                        JohnDoe</p>
+                        {{ $discount->author->username }}</p>
                 </a>
                 <div class="flex items-center justify-center my-4 gap-4 lg:mx-4">
                     <div
@@ -36,23 +40,25 @@
                     <div
                         class="flex items-center border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer lg:px-4">
                         <img class="h-full" src="/images/comment.png" alt="" width="22" height="22">
-                        <p class="text-light-gray ml-2">10</p>
+                        <p class="text-light-gray ml-2">{{ $discount->comments->count() }}</p>
                     </div>
                 </div>
                 <div class="flex justify-center lg:w-[250px] lg:-mr-14">
-                    <button
-                        class="flex my-4 items-center justify-center bg-gradient-to-b from-button-light-orange to-button-dark-orange p-2 rounded-md transition-transform hover:-translate-y-0.5 md:p-4 lg:w-full ">
-                        <p class="text-light-gray mr-4 font-bold text-sm md:text-lg ">Ver Chollo</p>
-                        <img src="/images/external-link.png" alt="" width="20" height="20">
-                    </button>
+                    <a href="">
+                        <button
+                            class="flex my-4 items-center justify-center bg-gradient-to-b from-button-light-orange to-button-dark-orange p-2 rounded-md transition-transform hover:-translate-y-0.5 md:p-4 lg:w-full ">
+
+                            <p class="text-light-gray mr-4 font-bold text-sm md:text-lg ">Ver Chollo</p>
+                            <img src="/images/external-link.png" alt="" width="20" height="20">
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
     <div
         class="w-auto absolute top-5 left-5 flex-col items-center justify-center rounded-2xl bg-button-light-orange p-2 drop-shadow-lg md:flex-row md:inline-flex">
-        <p class="text-white text-xs uppercase font-bold mr-2 md:text-sm ">10%</p>
+        <p class="text-white text-xs uppercase font-bold mr-2 md:text-sm ">{{ $discount->percentage }}%</p>
         <p class="text-white text-xs uppercase font-bold md:text-sm ">descuento</p>
     </div>
-
 </div>
