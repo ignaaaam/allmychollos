@@ -35,14 +35,19 @@
                         {{ $discount->author->username }}</p>
                 </a>
                 <div class="flex items-center justify-center my-4 gap-4 mx-4">
-                    <div
-                        class="border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
-                        <img class="h-full lg:w-8" src="/images/heart.png" alt="" width="24" height="24">
-                    </div>
-                    <div
-                        class="border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
-                        <img class="h-full lg:w-8" src="/images/dislike.png" alt="" width="24" height="24">
-                    </div>
+{{--                    <form method="GET" --}}{{-- method="POST" --}}{{-- action="#--}}{{--/discounts/{{ $discount->id }}/like --}}{{--">--}}
+{{--                        @csrf--}}
+                        <div
+                            class="flex border border-light-gray p-1 {{-- $discount->isLikedBy(current_user())  ? 'bg-button-light-orange' : '' --}} rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
+                            <img class="h-full" src="/images/heart.png" alt="" width="22" height="22">
+
+                            <div class="text-white ml-2">0{{-- $discount->likes->count() ?: 0 --}}</div>
+                        </div>
+{{--                    </form>--}}
+{{--                    <div--}}
+{{--                        class="border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">--}}
+{{--                        <img class="h-full lg:w-8" src="/images/dislike.png" alt="" width="24" height="24">--}}
+{{--                    </div>--}}
                     <a href="/discounts/{{ $discount->slug }}">
                         <div
                             class="flex items-center justify-center border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer lg:px-4 comment-container-featured">

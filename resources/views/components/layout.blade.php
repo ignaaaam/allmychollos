@@ -113,16 +113,18 @@
                     </li>
                     <li class="nav__item transition-transform hover:-translate-y-0.5">
                         @auth()
-                            <a href="/profile" class="nav__link active-link"><i class="uil uil-user-circle nav__icon"></i>Profile</a>
-                        @endauth
+                            <a href="/users/{{ auth()->user()->username }}" class="nav__link active-link"><i class="uil uil-user-circle nav__icon"></i>Profile</a>
+                        @else
                             <a href="/login" class="nav__link active-link"><i class="uil uil-user-circle nav__icon"></i>Login</a>
+                        @endauth
                     </li>
                     <li class="nav__item transition-transform hover:-translate-y-0.5">
                         <a href="/discounts" class="nav__link active-link"><i class="uil uil-pricetag-alt nav__icon"></i>Discounts</a>
                     </li>
-                    <li class="nav__item transition-transform hover:-translate-y-0.5">
-                        <a href="/" class="nav__link active-link"><i class="uil uil-bars nav__icon"></i>Menu</a>
-                    </li>
+                    {{--   Menu will be added on the future if it has more pages to add     --}}
+{{--                    <li class="nav__item transition-transform hover:-translate-y-0.5">--}}
+{{--                        <a href="/" class="nav__link active-link"><i class="uil uil-bars nav__icon"></i>Menu</a>--}}
+{{--                    </li>--}}
                 </ul>
             </nav>
 

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('discount_id')->constrained()->cascadeOnDelete();
             $table->boolean('liked');
-            $table->boolean('disliked');
             $table->timestamps();
         });
     }

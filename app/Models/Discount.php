@@ -49,7 +49,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Discount extends Model
 {
-    use HasFactory;
+    use HasFactory, Likable;
 
     protected $with = ['category','author'];
 

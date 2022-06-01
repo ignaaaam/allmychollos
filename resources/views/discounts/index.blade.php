@@ -4,11 +4,11 @@
         <x-categories-row
             :categories="$categories" />
         <section class=" w-full text-center h-3/4 bg-light-gray flex flex-col items-center justify-center p-10">
-            <h1 class="uppercase text-main-gray text-4xl font-bold">Descuentos Populares</h1>
+            <h1 class="uppercase text-main-gray text-4xl font-bold">Mejores Descuentos</h1>
     @if($discounts->count())
             <div class="swiper">
                 <div class="swiper-wrapper flex items-center">
-                    @foreach($discounts as $discount)
+                    @foreach($discounts->where('percentage','>','35') as $discount)
                         <x-discount-featured-card :discount="$discount" />
                     @endforeach
                 </div>

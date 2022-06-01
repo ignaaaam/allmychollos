@@ -35,14 +35,27 @@
                         {{ $discount->author->username }}</p>
                 </a>
                 <div class="flex items-center justify-center my-4 gap-4">
-                    <div
-                        class="border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
-                        <img class="h-full" src="/images/heart.png" alt="" width="22" height="22">
-                    </div>
-                    <div
-                        class="border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
-                        <img class="h-full" src="/images/dislike.png" alt="" width="22" height="22">
-                    </div>
+{{--                    <form method="GET" --}}{{-- method="POST" --}}{{-- action="#--}}{{--/discounts/{{ $discount->id }}/like --}}{{--">--}}
+{{--                        @csrf--}}
+                        <div
+                            class="flex border border-light-gray p-1 {{-- $discount->isLikedBy(current_user())  ? 'bg-button-light-orange' : '' --}} rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
+                            <img class="h-full" src="/images/heart.png" alt="" width="22" height="22">
+
+                            <div class="text-white ml-2">0{{-- $discount->likes->count() ?: 0 --}}</div>
+                        </div>
+{{--                    </form>--}}
+{{--                    <form method="POST" action="/discounts/{{ $discount->id }}/like">--}}
+{{--                        @csrf--}}
+{{--                        @method('DELETE')--}}
+
+{{--                        <button--}}
+{{--                            class="border border-light-gray p-1 {{ $discount->isDislikedBy(current_user())  ? 'bg-button-light-orange' : '' }} rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">--}}
+{{--                            <img class="h-full" src="/images/dislike.png" alt="" width="22" height="22">--}}
+
+{{--                            {{ $discount->dislikes->count() ?: 0 }}--}}
+{{--                        </button>--}}
+{{--                    </form>--}}
+
                     <a href="/discounts/{{ $discount->slug }}">
                         <div
                             class="flex items-center justify-center border border-light-gray rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer p-1">
