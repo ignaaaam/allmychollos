@@ -15,10 +15,10 @@ class DiscountController extends Controller
         if(request('search')) {
             $discounts
                 ->where('title', 'like', '%' . request('search') . '%')
-                ->orWhere('body', 'like', '%' . request('search') . '%');
+                ->orWhere('body', 'like', '%' . request('search') . '%')->paginate(5);
         }
         return view('discounts.index', [
-            'discounts' => $discounts->get(),
+            'discounts' => $discounts->paginate(5),
             'categories' => Category::all()
         ]);
     }
@@ -26,7 +26,7 @@ class DiscountController extends Controller
     public function onlyDiscounts()
     {
         return view('discounts.normal-discounts', [
-            'discounts' => Discount::latest()->get(),
+            'discounts' => Discount::latest()->paginate(5),
             'categories' => Category::all()
         ]);
     }

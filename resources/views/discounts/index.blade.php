@@ -29,6 +29,8 @@
             @else
                 <p class="my-8 text-center">No hay descuentos disponibles. Por favor vuelva mas tarde. </p>
             @endif
+                <div class="links p-8">{{ $discounts->links() }}</div>
+
         </section>
     </main>
 </x-layout>

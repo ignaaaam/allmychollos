@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
 
         $user = User::factory()->create([
             'name' => 'John Doe',
+            'email' => 'admin@example.com',
             'role_id' => 1
         ]);
 
