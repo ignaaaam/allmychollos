@@ -50,9 +50,6 @@
                 <div class="flex items-center justify-center">
                     <div class="w-4/12 min-w-fit flex lg:inline-flex items-center bg-light-gray rounded-xl  lg:w-[200px] px-3 p-0 lg:mx-4 xl:w-[28rem]">
                         <form method="GET" action="/" class="w-full">
-                            {{--                        @if (request('category'))--}}
-                            {{--                            <input type="hidden" name="category" value="{{ request('category') }}">--}}
-                            {{--                        @endif--}}
                             <div class="flex items-center">
                                 <input type="text"
                                        name="search"

@@ -28,7 +28,7 @@ class Category extends Model
 
     public $timestamps = false;
 
-    public function discount() {
+    public function discounts() {
         return $this->hasMany(Discount::class);
     }
 }

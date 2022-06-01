@@ -25,14 +25,14 @@
                 </a>
                 <div
                     class="flex-col justify-center items-center text-center w-full  lg:col-start-2 lg:col-span-full lg:row-start-1 lg:row-span-full lg:-ml-14">
-                    <a href="/discounts/{{ $discount->slug }}" class="lg:grid lg:row-start-2">
+                    <div class="lg:grid lg:row-start-2">
                         <h2 class="text-white mt-12 font-bold text-lg md:text-2xl lg:my-2 lg:px-4">{{ $discount->title }}</h2>
                         <div class="flex my-4 items-center text-center justify-center lg:my-2">
                             <p class="text-price-color font-bold mr-8 text-xl md:text-2xl">{{ $discount->discounted_price }} €</p>
                             <p class="line-through text-white text-lg md:text-lg">{{ $discount->original_price }} €</p>
                         </div>
                         <p class="text-white my-8 text-sm md:text-lg lg:my-4">{{ $discount->body }}</p>
-                    </a>
+                    </div>
                     <div
                         class="flex-col items-center justify-center gap-2 lg:flex-row lg:inline-flex lg:col-start-2 lg:col-span-full lg:row-start-4 lg:row-end-5">
                         <a class="flex items-center justify-center my-2 " href="/users/{{ $discount->author->username  }}">

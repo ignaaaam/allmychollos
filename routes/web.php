@@ -25,11 +25,11 @@ Route::get('discounts/{discount:slug}', [DiscountController::class, 'show']);
 Route::get('/users/{user:username}', [ProfilesController::class, 'show'])
     ->name('profile');
 
-
-//Route::get('discounts/{discount:slug}', function (Discount $discount) {
-//    return view('discount', [
-//        'discount' => $discount
-//    ]);
-//});
+Route::get('categories/{category:slug}', function (Category $category) {
+    return view('discounts.index', [
+        'discounts' => $category->discounts,
+        'categories' => Category::all()
+    ]);
+});
 
 require __DIR__.'/auth.php';

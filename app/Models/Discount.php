@@ -53,26 +53,29 @@ class Discount extends Model
 
     protected $with = ['category','author'];
 
-    public function scopeFilter($query, array $filters)
-    {
-        $query->when($filters['search'] ?? false, fn($query, $search) =>
-            $query->where(fn($query) =>
-                        $query->where('title', 'like', '%' . $search . '%')
-                            ->orWhere('body', 'like', '%' . $search . '%')
-                        )
-        );
-        $query->when($filters['category'] ?? false, fn($query, $category) =>
-            $query->whereHas('category', fn ($query) =>
-                $query->where('name', $category)
-            )
-        );
 
-        $query->when($filters['author'] ?? false, fn($query, $author) =>
-            $query->whereHas('author', fn ($query) =>
-                $query->where('username', $author)
-            )
-        );
-    }
+    // SCOPE FILTER FOR SEARCHING IN A CLEANER WAY TO ADD IN FUTURE (right now its in DiscountController in a messy way.)
+
+//    public function scopeFilter($query, array $filters)
+//    {
+//        $query->when($filters['search'] ?? false, fn($query, $search) =>
+//            $query->where(fn($query) =>
+//                        $query->where('title', 'like', '%' . $search . '%')
+//                            ->orWhere('body', 'like', '%' . $search . '%')
+//                        )
+//        );
+//        $query->when($filters['category'] ?? false, fn($query, $category) =>
+//            $query->whereHas('category', fn ($query) =>
+//                $query->where('name', $category)
+//            )
+//        );
+//
+//        $query->when($filters['author'] ?? false, fn($query, $author) =>
+//            $query->whereHas('author', fn ($query) =>
+//                $query->where('username', $author)
+//            )
+//        );
+//    }
 
     public function comments()
     {
