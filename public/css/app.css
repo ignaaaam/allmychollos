@@ -664,6 +664,21 @@ select {
 .left-1\/2 {
   left: 50%;
 }
+.bottom-2 {
+  bottom: 0.5rem;
+}
+.right-2 {
+  right: 0.5rem;
+}
+.-bottom-2 {
+  bottom: -0.5rem;
+}
+.-right-2 {
+  right: -0.5rem;
+}
+.-left-2 {
+  left: -0.5rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -948,6 +963,9 @@ select {
 .flex-col {
   flex-direction: column;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .items-start {
   align-items: flex-start;
 }
@@ -1141,6 +1159,10 @@ select {
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -1705,6 +1727,10 @@ html {
 .focus\:ring-indigo-200:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(199 210 254 / var(--tw-ring-opacity));
+}
+.focus\:ring-button-light-orange:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(247 179 43 / var(--tw-ring-opacity));
 }
 .focus\:ring-opacity-50:focus {
   --tw-ring-opacity: 0.5;

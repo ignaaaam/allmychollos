@@ -1,6 +1,7 @@
 <x-layout>
     <main>
-        @include('components.categories-row')
+        <x-categories-row
+            :categories="$categories" />
 
         <section class="w-4/6 mx-auto my-8 font-bold flex flex-col items-center justify-center">
             <h1 class="uppercase text-main-gray text-4xl bold self-start text-center mb-8 ">Últimos Descuentos</h1>

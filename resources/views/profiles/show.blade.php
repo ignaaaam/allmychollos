@@ -33,7 +33,7 @@
                 <div>
                     <h2 style="max-width: 270px;" class="font-bold text-2xl mb-1 text-white">{{ $user->name }}</h2>
                     <p class="text-sm text-white">
-                        Se unió {{ $user->created_at->diffForHumans() }}</p>
+                        Joined {{ $user->created_at->diffForHumans() }}</p>
                 </div>
 
                 <div class="flex">

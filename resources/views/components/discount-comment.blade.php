@@ -1,8 +1,13 @@
-@props(['comment'])
+@props(['comment','discount'])
 <x-panel class="bg-gray-50">
     <article class="flex space-x-4">
         <div class="flex-shrink-0">
-            <img class="rounded-xl" src="https://i.pravatar.cc/60?u={{ $comment->user_id }}" alt="" width="60" height="60">
+            @if (isset(auth()->user()->avatar))
+                <img class="rounded-xl" src="/images/{{ auth()->user()->avatar }}" alt=""
+                     width="40" height="40">
+            @else
+                <img src="{{ URL::to('/') }}/images/user-default.png" alt="{{ $discount->author->username }} avatar" width="35" height="35" class="rounded-xl mr-2">
+            @endif
         </div>
 
         <div>

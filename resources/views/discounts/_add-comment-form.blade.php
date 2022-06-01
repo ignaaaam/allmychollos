@@ -4,17 +4,21 @@
             @csrf
 
             <header class="flex items-center">
-                <img class="rounded-xl" src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt=""
+                @if (isset(auth()->user()->avatar))
+                <img class="rounded-xl" src="/images/{{ auth()->user()->avatar }}" alt=""
                      width="40" height="40">
-                <h2 class="ml-4">Want to participate?</h2>
+                @else
+                    <img src="{{ URL::to('/') }}/images/user-default.png" alt="{{ auth()->user()->username }} avatar" width="35" height="35" class="rounded-xl mr-2">
+                @endif
+                <h2 class="ml-4">Quieres comentar?</h2>
             </header>
 
             <div class="mt-6">
                                 <textarea
                                     name="body"
-                                    class="w-full text-sm focus:outline-none focus:ring"
+                                    class="w-full text-sm focus:outline-none focus:ring focus:ring-button-light-orange"
                                     rows="5"
-                                    placeholder="Quick, think of something to say!"
+                                    placeholder="Rápido, piensa en algo que decir!"
                                     required></textarea>
 
                 @error('body')

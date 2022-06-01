@@ -2,8 +2,7 @@
     <main>
 {{--        @include('components.categories-row')--}}
         <x-categories-row
-            :categories="$categories"
-            :discounts="$discounts" />
+            :categories="$categories" />
         <section class=" w-full text-center h-3/4 bg-light-gray flex flex-col items-center justify-center p-10">
             <h1 class="uppercase text-main-gray text-4xl font-bold">Descuentos Populares</h1>
     @if($discounts->count())

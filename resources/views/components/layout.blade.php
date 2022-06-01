@@ -85,9 +85,9 @@
                                 <button class="text-sm font-bold uppercase text-white">Bienvenido, <span class="text-sm font-bold uppercase text-button-light-orange mr-8 ml-1">{{ auth()->user()->username }}<i class="uil uil-angle-down ml-2"></i></span></button>
                             </x-slot>
                             @can('admin')
-                                <x-dropdown-item href="/admin/discounts" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
-                                <x-dropdown-item href="/admin/discounts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                                <x-dropdown-item href="/admin/discounts" :active="request()->is('admin/posts')">Admin Dashboard</x-dropdown-item>
                             @endcan
+                            <x-dropdown-item href="/users/{{ auth()->user()->username }}" :active="request()->is('discounts/create')">Mi Perfil</x-dropdown-item>
                             <x-dropdown-item href="/discounts/create" :active="request()->is('discounts/create')">Crear Descuento</x-dropdown-item>
                             <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
 

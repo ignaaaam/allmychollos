@@ -39,7 +39,7 @@
                             @if (isset($discount->author->avatar))
                                 <img src="{{ asset('storage/' . $discount->author->avatar) }}" alt="{{ $discount->author->username }} avatar" width="35" height="35" class="rounded-xl mr-2">
                             @else
-                                <img src="{{ URL::to('/') }}/images/user-default.png" alt="{{ $discount->author->username }} avatar" width="35" height="35" class="rounded-xl mr-2">
+                                <img src="/images/user-default.png" alt="" width="35" height="35" class="rounded-xl mr-2">
                             @endif
 
                             <p class="mr-4 text-white text-sm font-bold transition-transform hover:translate-x-0.5 md:text-lg">
@@ -81,11 +81,13 @@
         </div>
     </section>
 
-    <section class="col-span-8 col-start-5 mt-10 space-y-6 my-6">
+    <section class="container mx-auto mt-10 space-y-6 my-6">
         @include('discounts._add-comment-form')
         @if($discount->comments->count())
             @foreach($discount->comments as $comment)
-                <x-discount-comment :comment="$comment"/>
+                <x-discount-comment
+                    :discount="$discount"
+                    :comment="$comment"/>
             @endforeach
         @else
             <p class="my-8 text-center">Todavia no hay comentarios. Por favor vuelva mas tarde. </p>

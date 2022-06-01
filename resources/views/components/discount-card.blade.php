@@ -12,7 +12,10 @@
         <div
             class="flex-col justify-center items-center text-center w-full  lg:col-start-2 lg:col-span-full lg:row-start-1 lg:row-span-full lg:-ml-14">
             <a href="/discounts/{{ $discount->slug }}" class="lg:grid lg:row-start-2">
-                <h2 class="text-white font-bold text-lg md:text-2xl lg:my-2 lg:px-4">{{ $discount->title }}</h2>
+                <h2 class="text-white font-bold text-lg md:text-2xl lg:my-4 lg:px-4">{{ $discount->title }}</h2>
+                <div class="flex items-center justify-center mt-2 mb-6">
+                    <a href="/categories/{{ $discount->category->slug }}" class="flex justify-center items-center text-white text-xs text-center transition-all hover:font-bold hover:-translate-y-0.5 mx-2 bg-category-lighter-gray p-2 rounded-full">{{ $discount->category->name }}</a>
+                </div>
                 <div class="flex my-4 items-center text-center justify-center lg:my-2">
                     <p class="text-price-color font-bold mr-8 text-xl md:text-2xl">{{ $discount->discounted_price }} €</p>
                     <p class="line-through text-white text-lg md:text-lg">{{ $discount->original_price }} €</p>
@@ -40,11 +43,13 @@
                         class="border border-light-gray p-1 rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
                         <img class="h-full" src="/images/dislike.png" alt="" width="22" height="22">
                     </div>
-                    <div
-                        class="flex items-center justify-center border border-light-gray rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer p-1">
+                    <a href="/discounts/{{ $discount->slug }}">
+                        <div
+                            class="flex items-center justify-center border border-light-gray rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer p-1">
                             <img class="h-full" src="/images/comment.png" alt="" width="22" height="22">
                             <p class="text-light-gray ml-2">{{ $discount->comments->count() }}</p>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="flex justify-center lg:w-[250px] lg:-mr-14">
                     <a href="{{ $discount->link }}" target="_blank">
