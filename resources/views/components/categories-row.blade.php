@@ -12,7 +12,7 @@
             </button>
     <div id="category-container" class="scroll-smooth w-full whitespace-nowrap overflow-x-hidden py-4 flex 3xl:justify-center ">
                          @foreach($categories as $category)
-                            <a href="/categories/{{ $category->slug }}" class="flex justify-center items-center text-white text-sm text-center transition-all hover:font-bold hover:-translate-y-0.5 mx-2 bg-category-lighter-gray p-2 rounded-md">{{ $category->slug }}</a>
+                            <a href="/categories/{{ $category->slug }}" class="flex justify-center items-center text-white text-sm text-center transition-all hover:font-bold hover:-translate-y-0.5 mx-2 bg-category-lighter-gray p-2 rounded-md">{{ $category->name }}</a>
                          @endforeach
     </div>
     <button id="right" class="w-8 mx-4 bg-category-light-gray rounded-md flex items-center justify-center p-2 z-40 3xl:hidden">
