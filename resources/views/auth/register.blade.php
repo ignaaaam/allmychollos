@@ -75,7 +75,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-white hover:translate-x-0.5 transition-transform" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Ya tienes cuenta?') }}
                 </a>
 
                 <x-button class="ml-4">

@@ -1,14 +1,17 @@
 @props(['discount'])
 
 <div
-    class="w-[20rem] h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[50rem] lg:h-auto mb-4">
-    <div class="flex-col items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4">
+    class="w-[20rem] h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[50rem] lg:h-auto mb-4 ">
+    <div class="flex-col items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4 mt-12 lg:mt-4">
         <a href="" class="flex justify-center lg:row-span-4 lg:-ml-10">
-            <img class="h-full " src="/images/pngwing.com.png" alt="" width="120" height="120">
+            @if (isset($discount->thumbnail))
+                <img class="h-full " src="/images/pngwing.com.png" alt="" width="120" height="120">
+            @else
+            @endif
         </a>
         <div
             class="flex-col justify-center items-center text-center w-full  lg:col-start-2 lg:col-span-full lg:row-start-1 lg:row-span-full lg:-ml-14">
-            <a href="/discounts/1" class="lg:grid lg:row-start-2">
+            <a href="/discounts/{{ $discount->slug }}" class="lg:grid lg:row-start-2">
                 <h2 class="text-white font-bold text-lg md:text-2xl lg:my-2 lg:px-4">{{ $discount->title }}</h2>
                 <div class="flex my-4 items-center text-center justify-center lg:my-2">
                     <p class="text-price-color font-bold mr-8 text-xl md:text-2xl">{{ $discount->discounted_price }} €</p>
@@ -18,7 +21,7 @@
             </a>
             <div
                 class="flex-col items-center justify-center gap-2 lg:flex-row lg:inline-flex lg:col-start-2 lg:col-span-full lg:row-start-4 lg:row-end-5">
-                <a class="flex items-center justify-center my-2 " href="/user/1">
+                <a class="flex items-center justify-center my-2 " href="/users/{{ $discount->author->username  }}">
                     @if (isset($discount->author->avatar))
                         <img src="{{ asset('storage/' . $discount->author->avatar) }}" alt="{{ $discount->author->username }} avatar" width="35" height="35" class="rounded-xl mr-2">
                     @else
@@ -44,7 +47,7 @@
                     </div>
                 </div>
                 <div class="flex justify-center lg:w-[250px] lg:-mr-14">
-                    <a href="">
+                    <a href="{{ $discount->link }}" target="_blank">
                         <button
                             class="flex my-4 items-center justify-center bg-gradient-to-b from-button-light-orange to-button-dark-orange p-2 rounded-md transition-transform hover:-translate-y-0.5 md:p-4 lg:w-full ">
 

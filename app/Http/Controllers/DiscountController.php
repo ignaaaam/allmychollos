@@ -16,6 +16,14 @@ class DiscountController extends Controller
         ]);
     }
 
+    public function onlyDiscounts()
+    {
+        return view('discounts.normal-discounts', [
+            'discounts' => Discount::all(),
+            'categories' => Category::all()
+        ]);
+    }
+
     public function show(Discount $discount)
     {
         return view('discounts.show', [
