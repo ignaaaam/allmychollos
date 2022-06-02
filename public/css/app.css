@@ -940,9 +940,6 @@ select {
 .flex-col {
   flex-direction: column;
 }
-.items-start {
-  align-items: flex-start;
-}
 .items-center {
   align-items: center;
 }
@@ -954,9 +951,6 @@ select {
 }
 .justify-between {
   justify-content: space-between;
-}
-.justify-items-start {
-  justify-items: start;
 }
 .justify-items-center {
   justify-items: center;
@@ -1052,10 +1046,6 @@ select {
 .rounded-r-xl {
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
-}
-.rounded-l-xl {
-  border-top-left-radius: 0.75rem;
-  border-bottom-left-radius: 0.75rem;
 }
 .border {
   border-width: 1px;
@@ -1196,6 +1186,9 @@ select {
 .p-6 {
   padding: 1.5rem;
 }
+.p-32 {
+  padding: 8rem;
+}
 .p-1 {
   padding: 0.25rem;
 }
@@ -1207,9 +1200,6 @@ select {
 }
 .p-10 {
   padding: 2.5rem;
-}
-.p-32 {
-  padding: 8rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1231,6 +1221,10 @@ select {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1246,10 +1240,6 @@ select {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 .py-4 {
   padding-top: 1rem;
@@ -1334,6 +1324,10 @@ select {
   font-size: 1.5rem;
   line-height: 2rem;
 }
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1341,10 +1335,6 @@ select {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
-}
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 .font-medium {
   font-weight: 500;
@@ -1425,6 +1415,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
 }
+.text-indigo-500 {
+  --tw-text-opacity: 1;
+  color: rgb(99 102 241 / var(--tw-text-opacity));
+}
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -1432,10 +1426,6 @@ select {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
-}
-.text-indigo-500 {
-  --tw-text-opacity: 1;
-  color: rgb(99 102 241 / var(--tw-text-opacity));
 }
 .text-main-gray {
   --tw-text-opacity: 1;
@@ -1968,6 +1958,10 @@ html {
     margin-right: -2rem;
   }
 
+  .lg\:ml-0 {
+    margin-left: 0px;
+  }
+
   .lg\:ml-8 {
     margin-left: 2rem;
   }
@@ -1998,10 +1992,6 @@ html {
 
   .lg\:mt-4 {
     margin-top: 1rem;
-  }
-
-  .lg\:ml-0 {
-    margin-left: 0px;
   }
 
   .lg\:inline-block {
