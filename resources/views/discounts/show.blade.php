@@ -18,10 +18,10 @@
             class="w-[25rem] container  bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[50rem] lg:h-20 mb-4 swiper-slide my-4">
             <div class="flex-col items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4">
                 <a href="" class="flex justify-center lg:row-span-4 lg:-ml-10">
-{{--                    @if (isset($discount->thumbnail))--}}
-                        <img class="h-full " src="/images/pngwing.com.png" alt="" width="120" height="120">
-{{--                    @else--}}
-{{--                    @endif--}}
+                    @if (isset($discount->thumbnail))
+                        <img class="h-full " src="{{ asset('storage/' . $discount->thumbnail) }}" alt="" width="120" height="120">
+                    @else
+                    @endif
                 </a>
                 <div
                     class="flex-col justify-center items-center text-center w-full  lg:col-start-2 lg:col-span-full lg:row-start-1 lg:row-span-full lg:-ml-14">
