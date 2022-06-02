@@ -93,9 +93,9 @@
                             <x-slot name="trigger">
                                 <button class="text-sm font-bold uppercase text-white">Bienvenido, <span class="text-sm font-bold uppercase text-button-light-orange mr-8 ml-1">{{ auth()->user()->username }}<i class="uil uil-angle-down ml-2"></i></span></button>
                             </x-slot>
-                            @can('admin')
+                            @if(auth()->user()->role_id == 1)
                                 <x-dropdown-item href="/admin/discounts" :active="request()->is('admin/discounts')">Admin Dashboard</x-dropdown-item>
-                            @endcan
+                            @endif
                             <x-dropdown-item href="/users/{{ auth()->user()->username }}" :active="request()->is('discounts/create')">Mi Perfil</x-dropdown-item>
                             <x-dropdown-item href="/user/discounts" :active="request()->is('discounts/create')">Mis Descuentos</x-dropdown-item>
                             <x-dropdown-item href="/user/discounts/create" :active="request()->is('discounts/create')">Crear Descuento</x-dropdown-item>
@@ -106,12 +106,16 @@
                             </form>
                         </x-dropdown>
                     @else
-                        <button class=" px-4 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
-                            <a href="/login" class="text-lg font-bold uppercase text-white">Login</a>
-                        </button>
-                        <button class="mx-4 px-2 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
-                            <a href="/register" class="mx-6 text-lg text-white font-bold uppercase">Registro</a>
-                        </button>
+                        <a href="/login" class="px-4 py-2 text-lg font-bold uppercase text-white">
+                            <button class="font-bold px-4 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
+                                Login
+                            </button>
+                        </a>
+                        <a href="/register" class="px-4 py-2 mr-6 text-lg text-white font-bold uppercase">
+                            <button class="font-bold px-4 py-2 rounded-xl bg-gradient-to-b from-button-light-red to-button-dark-red drop-shadow-xl transition-transform hover:-translate-y-0.5">
+                                Registro
+                            </button>
+                        </a>
                     @endauth
                 </div>
             </nav>
@@ -149,7 +153,7 @@
                 <div class="flex items-center justify-center my-4">
                     <img src="/images/logo-medium.png" alt="Allmychollos Logo" width="145" height="50">
                 </div>
-                <div>
+                <div class="block">
                     <h1 class="text-white font-bold text-lg mt-8 mb-4">Suscribete a nuestro newsltter</h1>
                     <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
                         <form method="POST" action="/newsletter" class="lg:flex text-sm">
@@ -163,10 +167,9 @@
                                            name="email"
                                            class="lg:bg-transparent w-full py-2 lg:py-0 pl-4 border-none rounded-xl focus-within:outline-none">
 
-                                    @error('email')
-                                    <span class="text-xs text-red-500"> {{ $message }} </span>
-                                    @enderror
+
                                 </div>
+
                             </div>
 
                             <button type="submit"
@@ -176,6 +179,9 @@
                             </button>
                         </form>
                     </div>
+                    @error('email')
+                    <p class="text-xs text-red-500 mt-4"> {{ $message }} </p>
+                    @enderror
                 </div>
                 <div class="flex items-center justify-between mt-8 lg:justify-around">
                     <div class="mx-2">
@@ -236,4 +242,5 @@
             <!-- SwiperJS -->
             <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     </body>
+<x-flash />
 </html>

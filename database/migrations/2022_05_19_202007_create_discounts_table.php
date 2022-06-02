@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->text('body');
             $table->string('link');
-            $table->decimal('original_price', 4, 2);
-            $table->decimal('discounted_price', 4, 2);
+            $table->decimal('original_price', 5, 2);
+            $table->decimal('discounted_price', 5, 2);
             $table->integer('percentage');
-            $table->boolean('premium');
+            $table->boolean('premium')->nullable();
             $table->timestamps();
         });
     }

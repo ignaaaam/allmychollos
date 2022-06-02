@@ -58,6 +58,6 @@ class RegisteredUserController extends Controller
 
         Auth::login(User::create($attributes));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with('success', 'Tu cuenta ha sido creada');
     }
 }

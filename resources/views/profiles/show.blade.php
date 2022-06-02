@@ -37,15 +37,13 @@
                 </div>
 
                 <div class="flex">
-                    @can('edit', $user)
+                    @can('edit',$user)
                         <a href="{{ $user->path('edit') }}"
-                           class="rounded-full border border-gray-300 py-2 px-4 text-black text-sm mr-2">
+                           class="rounded-full border border-gray-300 py-2 px-4 text-white text-sm mr-2">
                             Edit Profile
                         </a>
                     @endcan
-
                 </div>
             </div>
-
     </section>
 </x-layout>

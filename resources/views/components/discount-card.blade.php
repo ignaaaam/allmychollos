@@ -5,7 +5,7 @@
     <div class="flex-col items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4 mt-12 lg:mt-4">
         <a href="" class="flex justify-center lg:row-span-4 lg:-ml-10">
             @if (isset($discount->thumbnail))
-                <img class="h-full " src="/images/pngwing.com.png" alt="" width="120" height="120">
+                <img class="h-full " src="{{ asset('storage/' . $discount->thumbnail) }}" alt="" width="120" height="120">
             @else
             @endif
         </a>

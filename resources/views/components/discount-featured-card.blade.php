@@ -38,7 +38,7 @@
 {{--                    <form method="GET" --}}{{-- method="POST" --}}{{-- action="#--}}{{--/discounts/{{ $discount->id }}/like --}}{{--">--}}
 {{--                        @csrf--}}
                         <div
-                            class="flex border border-light-gray p-1 {{-- $discount->isLikedBy(current_user())  ? 'bg-button-light-orange' : '' --}} rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
+                            class="flex border border-light-gray p-1 px-2 {{-- $discount->isLikedBy(current_user())  ? 'bg-button-light-orange' : '' --}} rounded-md transition-transform hover:-translate-y-0.5 cursor-pointer">
                             <img class="h-full" src="/images/heart.png" alt="" width="22" height="22">
 
                             <div class="text-white ml-2">0{{-- $discount->likes->count() ?: 0 --}}</div>
