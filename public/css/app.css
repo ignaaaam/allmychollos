@@ -940,6 +940,9 @@ select {
 .flex-col {
   flex-direction: column;
 }
+.items-start {
+  align-items: flex-start;
+}
 .items-center {
   align-items: center;
 }
@@ -951,6 +954,9 @@ select {
 }
 .justify-between {
   justify-content: space-between;
+}
+.justify-items-start {
+  justify-items: start;
 }
 .justify-items-center {
   justify-items: center;
@@ -1201,6 +1207,9 @@ select {
 }
 .p-10 {
   padding: 2.5rem;
+}
+.p-32 {
+  padding: 8rem;
 }
 .px-4 {
   padding-left: 1rem;
