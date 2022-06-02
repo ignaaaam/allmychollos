@@ -78,6 +78,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('admin/discounts', [AdminDiscountController::class, 'index']);
     Route::post('admin/discounts', [AdminDiscountController::class, 'store']);
+    Route::get('admin/discounts/create', [AdminDiscountController::class, 'create']);
+    Route::get('admin/discounts/{discount}/edit', [AdminDiscountController::class, 'edit']);
+    Route::patch('admin/discounts/{discount}', [AdminDiscountController::class, 'update']);
+    Route::delete('admin/discounts/{discount}', [AdminDiscountController::class, 'destroy']);
 });
 
 //Route::middleware('can:admin')->group(function () {

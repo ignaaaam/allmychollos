@@ -9,9 +9,10 @@
             <x-form.input name="original_price" type="number" step="any" min="10" max="900" />
             <x-form.input name="discounted_price" type="number" step="any" min="10" max="900" />
             <x-form.input name="link" />
-            @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 3)
-                <x-form.checkbox name="premium"/>
-            @endif
+{{--            COMMENTED TO ADD WHEN STRIPE IS ADDED --}}
+{{--            @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 3)--}}
+{{--                <x-form.checkbox name="premium"/>--}}
+{{--            @endif--}}
             <x-form.textarea name="body" />
 
             <x-form.field>
