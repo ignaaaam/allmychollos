@@ -11,6 +11,7 @@ class DiscountController extends Controller
     public function index()
     {
         $discounts = Discount::latest();
+        $allDiscounts = Discount::all();
 
         if(request('search')) {
             $discounts
@@ -19,6 +20,7 @@ class DiscountController extends Controller
         }
         return view('discounts.index', [
             'discounts' => $discounts->paginate(5),
+            'allDiscounts' => $allDiscounts,
             'categories' => Category::all()
         ]);
     }
