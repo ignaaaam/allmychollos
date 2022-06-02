@@ -18,7 +18,7 @@
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="/admin/posts/{{ $discount->id }}/edit" class="text-indigo-500 hover:text-indigo-600">
+                                    <a href="/admin/discounts/{{ $discount->id }}/edit" class="text-indigo-500 hover:text-indigo-600">
                                         Edit
                                     </a>
                                 </td>
@@ -26,7 +26,7 @@
                                     {{--                                        <a href="/admin/discounts/{{ $discount->id }}/delete" class="text-red-500 hover:text-indigo-600">--}}
                                     {{--                                            Delete--}}
                                     {{--                                        </a>--}}
-                                    <form action="/admin/posts/{{ $discount->id }}" method="POST">
+                                    <form action="/admin/discounts/{{ $discount->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
 
