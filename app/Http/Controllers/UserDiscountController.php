@@ -78,7 +78,7 @@ class UserDiscountController extends Controller
         $attributes = $this->validateDiscount($discount);
 
         if($attributes['thumbnail'] ?? false) {
-            $attributes['thumbnail'] = request()->file('thumbnail')->store('discounts_thumbnail');
+            $attributes['thumbnail'] = request()->file('thumbnail')->store('discount_thumbnails');
         }
 
         $discount->update($attributes);
