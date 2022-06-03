@@ -50,7 +50,7 @@
                         </tbody>
                     </table>
                     <div class="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
-                        <div class="links p-8">{{ $discounts->links() }}</div>
+                        <div class="links p-8">{{ $discounts->appends(request()->input())->links() }}</div>
                     </div>
                 </div>
             </div>
