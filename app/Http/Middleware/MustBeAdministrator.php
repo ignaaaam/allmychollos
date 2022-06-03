@@ -18,7 +18,7 @@ class MustBeAdministrator
     public function handle(Request $request, Closure $next)
     {
         if(auth()->user()->role_id !== 1){
-            abort(Response::HTTP_FORBIDDEN);
+            abort(Response::HTTP_UNAUTHORIZED);
         }
 
         return $next($request);

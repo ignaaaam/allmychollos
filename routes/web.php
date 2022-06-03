@@ -76,6 +76,10 @@ Route::middleware('auth')->group(function () {
         [ProfilesController::class, 'update'])->middleware('can:edit,user');
 
 
+});
+
+
+Route::middleware('admin')->group(function () {
     Route::get('admin/discounts', [AdminDiscountController::class, 'index']);
     Route::post('admin/discounts', [AdminDiscountController::class, 'store']);
     Route::get('admin/discounts/create', [AdminDiscountController::class, 'create']);
@@ -83,11 +87,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('admin/discounts/{discount}', [AdminDiscountController::class, 'update']);
     Route::delete('admin/discounts/{discount}', [AdminDiscountController::class, 'destroy']);
 });
-
-//Route::middleware('can:admin')->group(function () {
-//        Route::get('admin/discounts', [AdminDiscountController::class, 'index']);
-//        Route::post('admin/discounts', [AdminDiscountController::class, 'store']);
-//});
 
 
 require __DIR__.'/auth.php';
