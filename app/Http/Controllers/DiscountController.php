@@ -15,7 +15,7 @@ class DiscountController extends Controller
 //        N+1 PROBLEM SOLVED USING ->WITH, PASSED FROM 25 QUERIES to 9-12 FOR DB OPITMIZATION
 
         $discounts = Discount::latest()->with(['category','comments']);
-        $allDiscounts = Discount::with(['category','comments'])->paginate(5);
+        $allDiscounts = Discount::with(['category','comments'])->get();
 
         if(request('search')) {
             $discounts
