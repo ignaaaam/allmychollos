@@ -1747,6 +1747,9 @@ html {
   --tw-bg-opacity: 1;
   background-color: rgb(211 154 38 / var(--tw-bg-opacity));
 }
+.active\:font-bold:active {
+  font-weight: 700;
+}
 .active\:text-gray-700:active {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
