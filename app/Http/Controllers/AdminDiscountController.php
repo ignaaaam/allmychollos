@@ -12,7 +12,7 @@ class AdminDiscountController extends Controller
     public function index()
     {
         return view('admin.discounts.index', [
-            'discounts' => Discount::paginate(5)
+            'discounts' => Discount::paginate(5)->withQueryString()
         ]);
     }
 

@@ -48,7 +48,9 @@ Route::get('/users/{user:username}', [ProfilesController::class, 'show'])
 
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('discounts.normal-discounts', [
-        'discounts' => $category->discounts()->paginate(5),
+//        N+1 problem solved here too when clicking on Category (this needs to be added to a Controller for code cleanup & to avoid type of routes mixing)
+        'discounts' => $category->discounts()->with(['category','comments'])->paginate(5),
+        // Confused if it's better to use all() or with('discounts') when loading categories, when testing using all() = less queries and almost same ms time
         'categories' => Category::all()
     ]);
 });
@@ -74,12 +76,10 @@ Route::middleware('auth')->group(function () {
 
     Route::patch('/users/{user:username}',
         [ProfilesController::class, 'update'])->middleware('can:edit,user');
-
-
 });
 
 
-Route::middleware('admin')->group(function () {
+Route::middleware('can:admin')->group(function () {
     Route::get('admin/discounts', [AdminDiscountController::class, 'index']);
     Route::post('admin/discounts', [AdminDiscountController::class, 'store']);
     Route::get('admin/discounts/create', [AdminDiscountController::class, 'create']);

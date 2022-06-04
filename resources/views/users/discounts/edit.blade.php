@@ -10,9 +10,10 @@
             <x-form.input name="original_price" type="number" step="any" min="10" max="900" :value="old('original_price', $discount->original_price)" />
             <x-form.input name="discounted_price" type="number" step="any" min="10" max="900" :value="old('discounted_price', $discount->discounted_price)" />
             <x-form.input name="link" :value="old('link', $discount->link)" />
-            @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 3)
-                <x-form.checkbox name="premium" :value="old('premium', $discount->premium)"/>
-            @endif
+{{--            PREMIUM CHECKBOX WILL BE SHOWN ONCE SUBSCRIPTIONS ARE IMPLEMENTED --}}
+            {{--            @if(auth()->user()->role_id == 1 || auth()->user()->role_id == 3)--}}
+{{--                <x-form.checkbox name="premium" :value="old('premium', $discount->premium)"/>--}}
+{{--            @endif--}}
             <x-form.textarea name="body" >{{ old('body', $discount->body) }}</x-form.textarea>
 
             <x-form.field>

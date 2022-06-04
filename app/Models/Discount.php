@@ -54,8 +54,7 @@ class Discount extends Model
     protected $with = ['category','author'];
 
 
-    // SCOPE FILTER FOR SEARCHING IN A CLEANER WAY TO ADD IN FUTURE (right now its in DiscountController in a messy way.)
-
+    // SCOPE FILTER FOR SEARCHING IN A CLEANER & TO BE ABLE TO SEARCH CATEGORIES ALSO THIS WILL BE IMPLEMENTED IN THE FUTURE (right now its in DiscountController in a messy way.)
 //    public function scopeFilter($query, array $filters)
 //    {
 //        $query->when($filters['search'] ?? false, fn($query, $search) =>
@@ -76,6 +75,7 @@ class Discount extends Model
 //            )
 //        );
 //    }
+
 
     public function comments()
     {

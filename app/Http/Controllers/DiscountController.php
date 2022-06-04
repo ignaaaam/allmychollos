@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Discount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DiscountController extends Controller
 {
     public function index()
     {
-        $discounts = Discount::latest();
-        $allDiscounts = Discount::all();
+//        N+1 PROBLEM SOLVED USING ->WITH, PASSED FROM 25 QUERIES to 9-12 FOR DB OPITMIZATION
+
+        $discounts = Discount::latest()->with(['category','comments']);
+        $allDiscounts = Discount::with(['category','comments'])->paginate(5);
 
         if(request('search')) {
             $discounts
@@ -28,7 +32,7 @@ class DiscountController extends Controller
     public function onlyDiscounts()
     {
         return view('discounts.normal-discounts', [
-            'discounts' => Discount::latest()->paginate(5),
+            'discounts' => Discount::with('comments')->paginate(5),
             'categories' => Category::all()
         ]);
     }
