@@ -15,7 +15,7 @@ html {
     width: 90vw;
     height: auto;
     padding: 0 3.5rem !important;
-    margin-top: -1rem;
+    /*margin-top: 0rem;*/
 }
 
 .swiper-button-prev {
