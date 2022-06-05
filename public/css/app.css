@@ -788,6 +788,12 @@ select {
 .mt-1 {
   margin-top: 0.25rem;
 }
+.ml-6 {
+  margin-left: 1.5rem;
+}
+.mr-10 {
+  margin-right: 2.5rem;
+}
 .block {
   display: block;
 }
@@ -1528,7 +1534,7 @@ html {
 .swiper {
     width: 90vw;
     height: auto;
-    padding: 4rem !important;
+    padding: 0 3.5rem !important;
     margin-top: -3rem;
 }
 .swiper-button-prev {
@@ -1747,9 +1753,6 @@ html {
   --tw-bg-opacity: 1;
   background-color: rgb(211 154 38 / var(--tw-bg-opacity));
 }
-.active\:font-bold:active {
-  font-weight: 700;
-}
 .active\:text-gray-700:active {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
@@ -1854,6 +1857,14 @@ html {
 
   .md\:mt-0 {
     margin-top: 0px;
+  }
+
+  .md\:ml-12 {
+    margin-left: 3rem;
+  }
+
+  .md\:mr-10 {
+    margin-right: 2.5rem;
   }
 
   .md\:flex {
@@ -1995,6 +2006,14 @@ html {
 
   .lg\:mt-4 {
     margin-top: 1rem;
+  }
+
+  .lg\:mb-10 {
+    margin-bottom: 2.5rem;
+  }
+
+  .lg\:mr-12 {
+    margin-right: 3rem;
   }
 
   .lg\:inline-block {

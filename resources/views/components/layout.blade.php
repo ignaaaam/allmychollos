@@ -71,7 +71,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="w-16 flex items-center justify-center ml-12 lg:mr-8 lg:hidden">
+                    <div class="w-16 flex items-center justify-center ml-4 md:mr-10 lg:mr-8 lg:hidden">
                         @auth
                             <a href="/users/{{ auth()->user()->username }}" class="mr-6">
                                 <svg id="user-logo" data-name="user-logo" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 459 459"><defs><style>.cls-1{fill:#f3eff5;}</style></defs><path class="cls-1" d="M229.5,0C102.53,0,0,102.85,0,229.5,0,356.3,102.72,459,229.5,459,356.85,459,459,355.82,459,229.5,459,102.55,356.08,0,229.5,0ZM347.6,364.67a179.48,179.48,0,0,1-236.18,0,16.37,16.37,0,0,1-5.25-15.6c11.3-55.2,46.46-98.73,91.21-113C174,222.22,158,193.82,158,161c0-46.39,32-84,71.5-84S301,114.61,301,161c0,32.81-16,61.21-39.37,75,44.75,14.31,79.91,57.84,91.21,113A16.38,16.38,0,0,1,347.6,364.67Z"/></svg>

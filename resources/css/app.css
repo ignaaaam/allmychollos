@@ -14,7 +14,7 @@ html {
 .swiper {
     width: 90vw;
     height: auto;
-    padding: 4rem !important;
+    padding: 0 3.5rem !important;
     margin-top: -3rem;
 }
 
