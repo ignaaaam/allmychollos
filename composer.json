@@ -39,7 +39,7 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [ "ln -sr storage/app/public public/storage" ],
+        //"post-install-cmd": [ "ln -sr storage/app/public public/storage" ],
 
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
