@@ -32,7 +32,7 @@ class UserDiscountController extends Controller
         $discountedPrice = request('discounted_price');
         $percentage = 100 * ($originalPrice - $discountedPrice) / $originalPrice;
 
-        $link = parse_url(request()->input('link'), PHP_URL_SCHEME) ? request()->input('link') : 'https://' . request()->input('link');
+        $link = parse_url(request()->input('link'), PHP_URL_SCHEME) ? (request()->input('link') || 'http://' . request()->input('link'))  : 'https://' . request()->input('link');
 
         Discount::create(array_merge($this->validateDiscount(), [
             'user_id' => request()->user()->id,
