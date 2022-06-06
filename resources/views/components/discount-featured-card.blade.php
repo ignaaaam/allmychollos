@@ -2,7 +2,7 @@
 
 <div
     class="w-[20rem]  bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[50rem] lg:h-20 mb-4 swiper-slide my-4">
-    <div class="flex-col items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4 mt-12 lg:mt-4">
+    <div class=" items-center text-center justify-center h-full lg:grid lg:grid-cols-4 lg:grid-rows-4 mt-12 lg:mt-4">
         <a href="" class="flex justify-center lg:row-span-4 lg:-ml-10">
             @if (isset($best_discount->thumbnail))
                 <img class="h-full " src="/images/pngwing.com.png" alt="" width="120" height="120">
@@ -23,7 +23,7 @@
                 <p class="text-white my-8 text-sm md:text-lg lg:my-4">{{ $best_discount->body }}</p>
             </a>
             <div
-                class="flex-col items-center justify-center gap-2 lg:flex-row lg:inline-flex lg:col-start-2 lg:col-span-full lg:row-start-4 lg:row-end-5">
+                class=" gap-2 lg:col-start-2 lg:col-span-full lg:row-start-4 lg:row-end-5">
                 <a class="flex items-center justify-center my-2 " href="/users/{{ $best_discount->author->username  }}">
                     @if (isset($best_discount->author->avatar))
                         <img src="{{ asset('storage/' . $best_discount->author->avatar) }}" alt="{{ $best_discount->author->username }} avatar" width="35" height="35" class="rounded-xl mr-2">
@@ -56,7 +56,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="flex justify-center lg:w-[250px] lg:-mr-14">
+                <div class="flex justify-center lg:w-full lg:-mr-14 lg:col-start-2 lg:col-end-4">
                     <a href="{{ $best_discount->link }}" target="_blank">
                         <button
                             class="flex my-4 items-center justify-center bg-gradient-to-b from-button-light-orange to-button-dark-orange p-2 rounded-md transition-transform hover:-translate-y-0.5 md:p-4 lg:w-full ">

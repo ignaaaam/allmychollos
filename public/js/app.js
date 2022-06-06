@@ -5104,7 +5104,7 @@ var swiper = new Swiper('.swiper', {
   slidesPerView: 1,
   breakpoints: {
     // when window width is >= 640px
-    1650: {
+    1280: {
       slidesPerView: 2,
       spaceBetween: 100
     }
