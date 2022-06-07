@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Discount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class AdminDiscountController extends Controller
@@ -33,6 +34,7 @@ class AdminDiscountController extends Controller
 
         Discount::create(array_merge($this->validateDiscount(), [
             'user_id' => request()->user()->id,
+            'slug' => Str::slug(strtolower(request('slug'))),
             'thumbnail' => request()->file('thumbnail')->store('discount_thumbnails'),
             'percentage' => $percentage,
             'premium' => 0,
@@ -77,7 +79,7 @@ class AdminDiscountController extends Controller
         if($attributes['thumbnail'] ?? false) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('discounts_thumbnail');
         }
-
+        $attributes['slug'] = Str::slug(strtolower(request('slug')));
         $discount->update($attributes);
 
         return back()->with('success', 'Descuento actualizado!');

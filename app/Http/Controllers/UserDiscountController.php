@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Discount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class UserDiscountController extends Controller
 {
@@ -32,10 +34,11 @@ class UserDiscountController extends Controller
         $discountedPrice = request('discounted_price');
         $percentage = 100 * ($originalPrice - $discountedPrice) / $originalPrice;
 
-        $link = parse_url(request()->input('link'), PHP_URL_SCHEME) ? (request()->input('link') || 'http://' . request()->input('link'))  : 'https://' . request()->input('link');
+        $link = parse_url(request()->input('link'), PHP_URL_SCHEME) ? request()->input('link') : 'https://' . request()->input('link');
 
         Discount::create(array_merge($this->validateDiscount(), [
             'user_id' => request()->user()->id,
+            'slug' => Str::slug(strtolower(request('slug'))),
             'thumbnail' => request()->file('thumbnail')->store('discount_thumbnails'),
             'percentage' => $percentage,
             'premium' => 0,
@@ -65,8 +68,12 @@ class UserDiscountController extends Controller
         ]);
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function edit(Discount $discount)
     {
+        $this->authorize('update',$discount);
         $categories = Category::all();
         return view('users.discounts.edit', [
             'discount' => $discount,
@@ -74,13 +81,18 @@ class UserDiscountController extends Controller
         ]);
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update(Discount $discount) {
+        $this->authorize('update',$discount);
+
         $attributes = $this->validateDiscount($discount);
 
         if($attributes['thumbnail'] ?? false) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('discount_thumbnails');
         }
-
+        $attributes['slug'] = Str::slug(strtolower(request('slug')));
         $discount->update($attributes);
 
         return back()->with('success', 'Descuento actualizado!');

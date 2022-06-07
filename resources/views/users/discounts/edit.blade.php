@@ -1,5 +1,8 @@
 <x-layout>
     <x-setting :heading="'Editar Descuento: ' . $discount->title" >
+        @can('admin')
+            <form action="/admin/discounts/{{ $discount->id }}" method="POST" enctype="multipart/form-data">
+        @endcan
         <form action="/user/discounts/{{ $discount->id }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
