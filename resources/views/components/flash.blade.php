@@ -2,7 +2,7 @@
         <div x-data = "{show: true}"
              x-init= "setTimeout(() => show = false, 4000)"
              x-show="show"
-             class="fixed bg-button-light-orange text-white p-4 rounded-lg bottom-3 right-3 text-sm">
+             class="fixed bg-button-light-orange text-white p-4 rounded-lg bottom-3 right-3 text-sm z-50">
             <p>{{ session('success') }}</p>
         </div>
     @endif

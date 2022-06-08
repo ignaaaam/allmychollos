@@ -29,21 +29,18 @@
                     width="100">
             @endif
         </div>
-            <div class="flex justify-center items-center mb-6 mt-6">
-                <div>
-                    <h2 style="max-width: 270px;" class="font-bold text-2xl mb-1 text-white">{{ $user->name }}</h2>
+            <div class="flex-col justify-center items-center mb-6 mt-6">
+                <div class="flex-col justify-center items-center">
+                    <h2 class="font-bold text-2xl mb-1 text-white">{{ $user->name }}</h2>
                     <p class="text-sm text-white">
                         Joined {{ $user->created_at->diffForHumans() }}</p>
                 </div>
 
-                <div class="flex">
-                    @can('edit',$user)
-                        <a href="{{ $user->path('edit') }}"
-                           class="rounded-full border border-gray-300 py-2 px-4 text-white text-sm mr-2">
-                            Edit Profile
-                        </a>
-                    @endcan
-                </div>
+{{--                <div class="mt-4">--}}
+{{--                        <a class="bg-button-light-orange text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl transition-all ease-in-out hover:bg-button-dark-orange hover:shadow-lg" href="/user/{{ $user->username }}/edit }}">--}}
+{{--                            Edit Profile--}}
+{{--                        </a>--}}
+{{--                </div>--}}
             </div>
     </section>
 </x-layout>
