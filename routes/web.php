@@ -72,10 +72,10 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/users/{user:username}/edit',
-        [ProfilesController::class, 'edit'])->middleware('can:edit,user');
+        [ProfilesController::class, 'edit']);
 
     Route::patch('/users/{user:username}',
-        [ProfilesController::class, 'update'])->middleware('can:edit,user');
+        [ProfilesController::class, 'update']);
 });
 
 

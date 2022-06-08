@@ -1,15 +1,15 @@
 <x-layout>
     <x-setting heading="Mis Descuentos">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="-my-2 sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
                         <tbody>
                         @if($discounts->count())
                             @foreach($discounts as $discount)
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
+                                <tr class="flex-col">
+                                    <td class="px-6 py-4">
+                                        <div class="flex-col items-center">
                                             <div class="text-sm font-medium text-gray-900">
                                                 <a href="/discounts/{{ $discount->slug }}">
                                                     {{ $discount->title }}

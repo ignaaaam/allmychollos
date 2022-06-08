@@ -13,6 +13,7 @@
 
         Volver a descuentos
     </a>
+    <x-setting :heading="'Perfil'">
     <section
         class="w-[20rem] container mx-auto flex-col items-center justify-center my-6 h-auto bg-gradient-to-b from-card-light-gray to-card-main-gray p-6 rounded-2xl drop-shadow-xl md:w-[35rem] lg:w-[50rem] lg:h-auto mb-4 text-center">
 
@@ -36,11 +37,12 @@
                         Joined {{ $user->created_at->diffForHumans() }}</p>
                 </div>
 
-{{--                <div class="mt-4">--}}
-{{--                        <a class="bg-button-light-orange text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl transition-all ease-in-out hover:bg-button-dark-orange hover:shadow-lg" href="/user/{{ $user->username }}/edit }}">--}}
-{{--                            Edit Profile--}}
-{{--                        </a>--}}
-{{--                </div>--}}
+                <div class="mt-4">
+                        <a class="bg-button-light-orange text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl transition-all ease-in-out hover:bg-button-dark-orange hover:shadow-lg" href="/users/{{ $user->username }}/edit">
+                            Edit Profile
+                        </a>
+                </div>
             </div>
     </section>
+    </x-setting>
 </x-layout>

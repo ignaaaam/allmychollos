@@ -5,22 +5,27 @@
         {{ $heading }}
     </h1>
     <div class="flex-col mb-4">
+        @auth
         <aside class="w-48 flex-shrink-0 ml-12 mb-4 lg:ml-0">
             <h4 class="font-semibold mb-4">Links</h4>
             <ul>
                 <li>
-                    <a href="/user/discounts" class="{{ request()->is('discounts/create') ? 'text-button-light-orange' : '' }}">Mis descuentos</a>
+                    <a href="/users/{{ auth()->user()->username }}" class="{{ request()->is('profile') ? 'text-button-light-orange' : '' }}">Mi Perfil</a>
                 </li>
                 <li>
-                    <a href="discounts/create" class="{{ request()->is('discounts/create') ? 'text-button-light-orange' : '' }}">Añadir descuento</a>
+                    <a href="/user/discounts" class="{{ request()->is('user/discounts') ? 'text-button-light-orange' : '' }}">Mis descuentos</a>
+                </li>
+                <li>
+                    <a href="discounts/create" class="{{ request()->is('user/discounts/create') ? 'text-button-light-orange' : '' }}">Añadir descuento</a>
                 </li>
             </ul>
         </aside>
-
+        @else
         <main class="flex-1">
             <x-panel>
                 {{ $slot }}
             </x-panel>
         </main>
+        @endif
     </div>
 </section>
