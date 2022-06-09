@@ -15,16 +15,12 @@
     RewriteRule ^ %1 [L,R=301]
 
     # Send Requests To Front Controller...
-#    RewriteCond %{REQUEST_FILENAME} !-d
-#    RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteRule ^ index.php [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
 
     #add this on public/.htaccess for Laravel
     RewriteCond %{HTTPS} !=on
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-    #non www to www redirect
-    RewriteCond %{HTTP_HOST} !^www\. [NC]
-    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 </IfModule>
