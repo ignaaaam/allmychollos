@@ -32,7 +32,7 @@ class DiscountController extends Controller
     public function onlyDiscounts()
     {
         return view('discounts.normal-discounts', [
-            'discounts' => Discount::with('comments')->paginate(5),
+            'discounts' => Discount::with('comments')->latest()->paginate(5),
             'categories' => Category::all()
         ]);
     }

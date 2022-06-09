@@ -50,7 +50,7 @@
                 <div class="flex items-center justify-center">
                     <div class="w-4/12 min-w-fit flex lg:inline-flex items-center bg-light-gray rounded-xl mr-2  lg:w-[200px] px-3 p-0 lg:mx-4 xl:w-[28rem]">
                         <form method="GET" action="/" class="w-full">
-                            @csrf
+                            {{--    SINCE IT'S A GET REQUEST CSRF IS NOT NEEDED HERE     --}}
                             <div class="flex items-center">
                                 <input type="text"
                                        name="search"
@@ -160,7 +160,7 @@
                     <img src="/images/logo-medium.png" alt="Allmychollos Logo" width="145" height="50">
                 </div>
                 <div class="block">
-                    <h1 class="text-white font-bold text-lg mt-8 mb-4">Suscribete a nuestro newsltter</h1>
+                    <h1 class="text-white font-bold text-lg mt-8 mb-4">Suscribete a nuestro newsletter</h1>
                     <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
                         <form method="POST" action="/newsletter" class="lg:flex text-sm">
                             @csrf
@@ -172,8 +172,6 @@
                                            placeholder="Introduce tu email"
                                            name="email"
                                            class="lg:bg-transparent w-full py-2 lg:py-0 pl-4 border-none rounded-xl focus-within:outline-none">
-
-
                                 </div>
 
                             </div>
@@ -197,13 +195,13 @@
                                 <a href="/">Home</a>
                             </li>
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Descuentos</a>
+                                <a href="/discounts">Descuentos</a>
                             </li>
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">FAQ</a>
+                                <a href="/faq">FAQ</a>
                             </li>
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Contacto</a>
+                                <a href="/contact">Contacto</a>
                             </li>
                         </ul>
                     </div>
@@ -211,30 +209,30 @@
                         <h2 class="font-bold text-white mb-4">Ayuda</h2>
                         <ul class=" ">
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Facturación</a>
+                                <a href="#">Facturación</a>
                             </li>
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Sobre Nosotros</a>
+                                <a href="/faq">Sobre Nosotros</a>
                             </li>
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Terminos de uso</a>
+                                <a href="#">Terminos de uso</a>
                             </li>
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Privacidad</a>
+                                <a href="#">Privacidad</a>
                             </li>
                         </ul>
                     </div>
                     <div class="mx-2">
                         <h2 class="font-bold text-white mb-4">Visítanos</h2>
-                        <ul class=" ">
+                        <ul class="">
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Instagram</a>
+                                <a target="_blank" href="https://www.instagram.com">Instagram</a>
                             </li>
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Twitter</a>
+                                <a target="_blank" href="https://www.twitter.com">Twitter</a>
                             </li>
                             <li class="text-gray-400 hover:text-gray-200">
-                                <a href="/">Facebook</a>
+                                <a target="_blank" href="https://www.facebook.com">Facebook</a>
                             </li>
                         </ul>
                     </div>
