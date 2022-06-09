@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting :heading="'Editar Perfil'" >
-    <form action="/users/{{ $user->username }}/edit" method="POST" enctype="multipart/form-data">
+    <form action="/users/{{ $user->username }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
 
@@ -29,13 +29,13 @@
                             <x-form.input id="password" class="block mt-1 w-full"
                                      type="password"
                                      name="password"
-                                     required autocomplete="new-password"
-                            :value="old('password', $user->password)"/>
+                                      autocomplete="new-password"
+                            />
 
                         <!-- Confirm Password -->
                             <x-form.input id="password_confirmation" class="block mt-1 w-full"
                                      type="password"
-                                     name="password_confirmation" required />
+                                     name="password_confirmation"  />
 
                     <x-form.button>Actualizar</x-form.button>
                 </form>

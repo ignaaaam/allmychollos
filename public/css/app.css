@@ -890,12 +890,6 @@ select {
 .w-4\/6 {
   width: 66.666667%;
 }
-.w-3\/4 {
-  width: 75%;
-}
-.w-1\/4 {
-  width: 25%;
-}
 .min-w-fit {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
@@ -1019,9 +1013,6 @@ select {
 }
 .whitespace-nowrap {
   white-space: nowrap;
-}
-.whitespace-pre-wrap {
-  white-space: pre-wrap;
 }
 .break-all {
   word-break: break-all;

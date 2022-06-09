@@ -9,9 +9,10 @@
         <aside class="w-48 flex-shrink-0 ml-12 mb-4 lg:ml-0">
             <h4 class="font-semibold mb-4">Links</h4>
             <ul>
-                <li>
-                    <a href="/users/{{ auth()->user()->username }}" class="{{ request()->is('profile') ? 'text-button-light-orange' : '' }}">Mi Perfil</a>
-                </li>
+
+                    <li>
+                        <a href="/users/{{ auth()->user()->username }}" class="{{ request()->is('users/*') ? 'text-button-light-orange' : '' }}">Mi Perfil</a>
+                    </li>
                 <li>
                     <a href="/user/discounts" class="{{ request()->is('user/discounts') ? 'text-button-light-orange' : '' }}">Mis descuentos</a>
                 </li>
@@ -20,12 +21,11 @@
                 </li>
             </ul>
         </aside>
-        @else
+        @endauth
         <main class="flex-1">
             <x-panel>
                 {{ $slot }}
             </x-panel>
         </main>
-        @endif
     </div>
 </section>

@@ -36,12 +36,13 @@
                     <p class="text-sm text-white">
                         Joined {{ $user->created_at->diffForHumans() }}</p>
                 </div>
-
+                @can('edit', $user)
                 <div class="mt-4">
                         <a class="bg-button-light-orange text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl transition-all ease-in-out hover:bg-button-dark-orange hover:shadow-lg" href="/users/{{ $user->username }}/edit">
                             Edit Profile
                         </a>
                 </div>
+                @endcan
             </div>
     </section>
     </x-setting>

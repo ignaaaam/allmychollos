@@ -4,7 +4,7 @@
             @csrf
 
             <x-form.input name="title" />
-            <x-form.input name="slug" />
+            <x-form.input name="slug" value="" />
             <x-form.input name="thumbnail" type="file" />
             <x-form.input name="original_price" type="number" step="any" min="10" max="900" />
             <x-form.input name="discounted_price" type="number" step="any" min="10" max="900" />

@@ -55,9 +55,6 @@ class ProfilesController extends Controller
             ],
         ]);
 
-
-        $attributes['password'] = Hash::make(request('password'));
-
         if(request('avatar')){
             $attributes['avatar'] = request('avatar')->store('avatars');
         }
@@ -65,6 +62,6 @@ class ProfilesController extends Controller
 
         $user->update($attributes);
 
-        return redirect($user->path());
+        return back()->with('success', 'Perfil actualizado correctamente!');
     }
 }

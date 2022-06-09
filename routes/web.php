@@ -5,6 +5,7 @@ use App\Http\Controllers\DiscountCommentController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\DiscountLikesController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\UserDiscountController;
 use App\Models\Category;
@@ -72,10 +73,10 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/users/{user:username}/edit',
-        [ProfilesController::class, 'edit']);
+        [ProfilesController::class, 'edit'])->middleware('can:edit,user');
 
     Route::patch('/users/{user:username}',
-        [ProfilesController::class, 'update']);
+        [ProfilesController::class, 'update'])->middleware('can:edit,user');
 });
 
 
