@@ -39,7 +39,7 @@ class UserDiscountController extends Controller
         Discount::create(array_merge($this->validateDiscount(), [
             'user_id' => request()->user()->id,
             'slug' => Str::slug(strtolower(request('slug'))),
-            'thumbnail' => request()->file('thumbnail')->store('discount_thumbnails'),
+            'thumbnail' => request()->file('thumbnail')->store('discounts_thumbnail'),
             'percentage' => $percentage,
             'premium' => 0,
             'link' => $link
@@ -90,7 +90,7 @@ class UserDiscountController extends Controller
         $attributes = $this->validateDiscount($discount);
 
         if($attributes['thumbnail'] ?? false) {
-            $attributes['thumbnail'] = request()->file('thumbnail')->store('discount_thumbnails');
+            $attributes['thumbnail'] = request()->file('thumbnail')->store('discounts_thumbnail');
         }
         $attributes['slug'] = Str::slug(strtolower(request('slug')));
         $discount->update($attributes);
